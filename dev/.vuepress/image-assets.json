@@ -1,0 +1,282 @@
+{
+  "description": "Static remote image sources mirrored in VuePress public assets. Contributor walls and the sponsor chart remain live remote images.",
+  "assets": [
+    {
+      "source": "https://cdn.staticaly.com/gh/qfluentwidgets/picx-images-hosting@master/20230824/Compact.20s8q00qtvfk.webp",
+      "references": [
+        "dev/docs/components/navigation/navigation_bar.md"
+      ],
+      "local": "/img/navigation/Compact.jpg",
+      "reusedExisting": true
+    },
+    {
+      "source": "https://cdn.staticaly.com/gh/qfluentwidgets/picx-images-hosting@master/20230824/Expand.39gngq1yta40.webp",
+      "references": [
+        "dev/docs/components/navigation/navigation_bar.md"
+      ],
+      "local": "/img/navigation/Expand.jpg",
+      "reusedExisting": true
+    },
+    {
+      "source": "https://cdn.staticaly.com/gh/qfluentwidgets/picx-images-hosting@master/20230824/Menu.5qqwsbrrs4w0.webp",
+      "references": [
+        "dev/docs/components/navigation/navigation_bar.md"
+      ],
+      "local": "/img/navigation/Menu.jpg",
+      "reusedExisting": true
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/10/28/653d1d5bc9178.jpg",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/653d1d5bc9178.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/10/28/653d1d5bc9178.jpg",
+      "bytes": 515548,
+      "sha256": "58ae7138b0a145cc86111aeeb0dca7bbf2546f26fc1fae157d9f9b27878c7398"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/10/28/653d29b23ff96.jpg",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/653d29b23ff96.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/10/28/653d29b23ff96.jpg",
+      "bytes": 591127,
+      "sha256": "2f97df3ab789dbeeb28c6cc9b8ac55ba8c9b9da65a760d7e4b04af74cd86e043"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/10/28/653d2ab76ba87.png",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/653d2ab76ba87.png",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/10/28/653d2ab76ba87.png",
+      "bytes": 220261,
+      "sha256": "d434ebab415ad3cf6f82bf08914b96589e1be6dbeef79a59fa17c1bb9c4e55c0"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/10/28/653d2b4046ca1.jpg",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/653d2b4046ca1.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/10/28/653d2b4046ca1.jpg",
+      "bytes": 212358,
+      "sha256": "dcd508f364f4610012920ba77b129af109bc950bf190671c8aa8aacdd15d1962"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/11/08/654ba23ebad12.jpg",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/654ba23ebad12.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/11/08/654ba23ebad12.jpg",
+      "bytes": 449786,
+      "sha256": "73a1a826d8b7d5b5d828a5876023e77f30dc94020c45ed15f7b943664fb29901"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/11/08/654ba2ad839eb.jpg",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/654ba2ad839eb.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/11/08/654ba2ad839eb.jpg",
+      "bytes": 390638,
+      "sha256": "e23ad02760e2831f45c4d812390a2ffb55e5ad0b228db49bec47cea22b6ddee0"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/11/08/654ba2f9442f0.png",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/654ba2f9442f0.png",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/11/08/654ba2f9442f0.png",
+      "bytes": 1082689,
+      "sha256": "86cae6dd40a43ec2489846ae5d18a6d815b0afc34ec3d637e916b2f299e303f6"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/11/11/654eed0927f9f.png",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/654eed0927f9f.png",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/11/11/654eed0927f9f.png",
+      "bytes": 421380,
+      "sha256": "89bea2ac87abb37377827e3098738577a702dd9489f5d16f69ce09fd5a082ead"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/11/11/654ef66014d97.jpg",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/654ef66014d97.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/11/11/654ef66014d97.jpg",
+      "bytes": 394254,
+      "sha256": "af1cca1cdab2985cd39855e9a9ddf12271b69e224e20128c48c9dbd317898bb9"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/12/09/65740850ccc5b.png",
+      "references": [
+        "dev/.vuepress/config/en/prices.js",
+        "dev/.vuepress/config/zh/prices.js"
+      ],
+      "local": "/img/mirrors/65740850ccc5b.png",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/12/09/65740850ccc5b.png",
+      "bytes": 4274,
+      "sha256": "25657475b31ddc5065d90ac94d11bdc28c41310ffece134e1fb74e40b2e81be4"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2023/12/09/6574094282706.png",
+      "references": [
+        "dev/.vuepress/config/en/prices.js",
+        "dev/.vuepress/config/zh/prices.js"
+      ],
+      "local": "/img/mirrors/6574094282706.png",
+      "downloadedFrom": "https://img.fastmirror.net/s/2023/12/09/6574094282706.png",
+      "bytes": 366511,
+      "sha256": "6fcd79ddd8db9db2c11bbae05b8089051395dd27e15bb0ecf879955ca4fbd9d0"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2024/02/18/65d22363d4a73.jpg",
+      "references": [
+        "dev/docs/guide/designer.md",
+        "dev/zh/guide/designer.md"
+      ],
+      "local": "/img/mirrors/65d22363d4a73.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2024/02/18/65d22363d4a73.jpg",
+      "bytes": 597476,
+      "sha256": "159c15ce65cb0ad969168972e9f01dbaee50ac7ee4e4f3cfe2f3950a5d4ca187"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2024/07/13/6692250e8d19d.jpg",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/6692250e8d19d.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2024/07/13/6692250e8d19d.jpg",
+      "bytes": 224072,
+      "sha256": "1387c8f8d09d8ccdedcbc45f39107d8c37797ab0002c840dd9ac398f59a0f5d1"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2024/07/13/66922605e38b4.jpg",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/66922605e38b4.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2024/07/13/66922605e38b4.jpg",
+      "bytes": 233659,
+      "sha256": "cacb35aaf26fc6a25e18b342238414f7af0900a24576d413c286022e10f6fcd6"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2024/11/25/674416062e878.jpg",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/674416062e878.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2024/11/25/674416062e878.jpg",
+      "bytes": 221275,
+      "sha256": "0cfb8d877a4b0f6ee17dc12f1176a5fa74f498910eb6b95cb450af300451c718"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2025/02/08/67a6d1f9db908.png",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/67a6d1f9db908.png",
+      "downloadedFrom": "https://img.fastmirror.net/s/2025/02/08/67a6d1f9db908.png",
+      "bytes": 749154,
+      "sha256": "f77259b0602b00515a02bdc02b19fd77fbc5bd88d2b231447ca6acf477032558"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2025/07/04/6867e839776d2.png",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/6867e839776d2.png",
+      "downloadedFrom": "https://img.fastmirror.net/s/2025/07/04/6867e839776d2.png",
+      "bytes": 453403,
+      "sha256": "c6b5c73bbab6073d106dd4b7d71454a1c55940cadb2462d7782565d46675b735"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2025/08/29/68b1a7c03a6d6.png",
+      "references": [
+        "dev/.vuepress/config/en/showcases.js",
+        "dev/.vuepress/config/zh/showcases.js"
+      ],
+      "local": "/img/mirrors/68b1a7c03a6d6.png",
+      "downloadedFrom": "https://img.fastmirror.net/s/2025/08/29/68b1a7c03a6d6.png",
+      "bytes": 2249929,
+      "sha256": "70854f940bc3c92b515066805356d9e59049195b04747472836fd02f6872ea6e"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2025/08/30/68b2ac876aee8.png",
+      "references": [
+        "dev/.vuepress/config/en/prices.js",
+        "dev/.vuepress/config/zh/prices.js"
+      ],
+      "local": "/img/mirrors/68b2ac876aee8.png",
+      "downloadedFrom": "https://img.fastmirror.net/s/2025/08/30/68b2ac876aee8.png",
+      "bytes": 3098772,
+      "sha256": "13382de9d9dbf7ff9bbff8f4476797fafc91f034311632a8eeedd9c9138abdad"
+    },
+    {
+      "source": "https://img.fastmirror.net/s/2025/08/30/68b2ad14de8a2.jpeg",
+      "references": [
+        "dev/.vuepress/config/en/prices.js",
+        "dev/.vuepress/config/zh/prices.js"
+      ],
+      "local": "/img/mirrors/68b2ad14de8a2.jpg",
+      "downloadedFrom": "https://img.fastmirror.net/s/2025/08/30/68b2ad14de8a2.jpeg",
+      "bytes": 23985,
+      "sha256": "e63ed5d586dea927bf1a716c0bd4b97e64276d84465adee71265a8cb49b74ac1"
+    },
+    {
+      "source": "https://pyqt-fluent-widgets.readthedocs.io/en/latest/_images/NavigationInterface_Minimal.jpg",
+      "references": [
+        "dev/docs/components/navigation/navigation_bar.md",
+        "dev/zh/components/navigation/navigation_bar.md"
+      ],
+      "local": "/img/mirrors/NavigationInterface_Minimal.jpg",
+      "downloadedFrom": "https://pyqt-fluent-widgets.readthedocs.io/en/latest/_images/NavigationInterface_Minimal.jpg",
+      "bytes": 227051,
+      "sha256": "8a9af3e964ee984b6d7a1a908980bdd1bab8c005d8cb0e557df52f7e6812b35b"
+    },
+    {
+      "source": "https://pyqt-fluent-widgets.readthedocs.io/en/latest/_images/NavigationInterface_Structure.jpg",
+      "references": [
+        "dev/docs/components/navigation/navigation_bar.md",
+        "dev/zh/components/navigation/navigation_bar.md"
+      ],
+      "local": "/img/mirrors/NavigationInterface_Structure.jpg",
+      "downloadedFrom": "https://pyqt-fluent-widgets.readthedocs.io/en/latest/_images/NavigationInterface_Structure.jpg",
+      "bytes": 426621,
+      "sha256": "d3fcdec7183df43bf6508d5570910b4a6e265c7e2ae90fb56d30ddb879924e95"
+    },
+    {
+      "source": "https://pyqt-fluent-widgets.readthedocs.io/en/latest/_images/NavigationInterface.jpg",
+      "references": [
+        "dev/docs/components/navigation/navigation_bar.md",
+        "dev/zh/components/navigation/navigation_bar.md"
+      ],
+      "local": "/img/mirrors/NavigationInterface.jpg",
+      "downloadedFrom": "https://pyqt-fluent-widgets.readthedocs.io/en/latest/_images/NavigationInterface.jpg",
+      "bytes": 183717,
+      "sha256": "8450a81e160d81982695a00cfeb702735be67d1b75ceccd79926071de3847d68"
+    }
+  ]
+}
