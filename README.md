@@ -26,6 +26,14 @@ The upstream copyright notices and GPLv3 license are retained.
 3. Check the docs on http://127.0.0.1:8080
 
 
+## Website language
+
+On initial entry, Chinese browser languages select the Chinese site; other languages select English. The corresponding page and query parameters are retained when a translation exists. Shared links with section anchors keep their explicit page language.
+
+Manual language changes are remembered locally using `fos-docs:site-locale` and take precedence on subsequent visits. Scrolling and ordinary page navigation do not trigger automatic language switching. Blocked browser storage does not prevent navigation.
+
+Run the language regression checks from `dev` with `npm run test:site-locale`.
+
 ## How to Contribute
 
 1. Fork this repo

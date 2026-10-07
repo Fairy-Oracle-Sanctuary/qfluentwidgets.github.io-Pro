@@ -10,11 +10,11 @@ import { fileURLToPath } from 'node:url';
 export default defineUserConfig({
   locales: {
     '/': {
-      lang: 'English',
+      lang: 'en-US',
       title: 'QFluentWidgets',
     },
     '/zh/': {
-      lang: '简体中文',
+      lang: 'zh-CN',
       title: "QFluentWidgets",
     },
   },

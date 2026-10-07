@@ -10,7 +10,8 @@
     "start": "vuepress dev .",
     "build": "vuepress build .",
     "test:language-tabs": "node --test tests/language-tabs.test.cjs",
-    "test:showcase": "node --test tests/showcase.test.cjs"
+    "test:showcase": "node --test tests/showcase.test.cjs",
+    "test:site-locale": "node --test tests/site-locale.test.cjs"
   },
   "dependencies": {
     "highlight.js": "^11.8.0",
