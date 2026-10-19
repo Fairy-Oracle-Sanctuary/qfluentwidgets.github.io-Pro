@@ -140,6 +140,9 @@ image.setMagnifierEnabled(True)
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -149,6 +152,8 @@ image.setMagnifierEnabled(True)
 ```
 
 ### C++ [ImageLabel](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/label.h)
+
+![ImageLabel](/img/components/label/ImageLabel.png)
 
 ```cpp
 #include <components/widgets/label.h>
@@ -160,6 +165,8 @@ image->setBorderRadius(8, 8, 8, 8);
 
 ### C++ [AvatarWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/label.h)
 
+![AvatarWidget](/img/components/label/AvatarWidget.png)
+
 ```cpp
 #include <components/widgets/label.h>
 
@@ -167,14 +174,50 @@ auto* avatar = new qfw::AvatarWidget(QStringLiteral("/path/to/avatar.png"), pare
 avatar->setRadius(24);
 ```
 
-## C++ 暂未实现的组件
+### C++ [AvatarPicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/avatar_picker.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![AvatarPicker](/img/components/imagecropper/AvatarPicker.png)
 
-- `AvatarPicker`
-- `ImageCropper`
-- `ImageComparisonSlider`
-- `ImageMagnifierWidget`
+```cpp
+#include <components/widgets/avatar_picker.h>
+auto* picker = new qfw::AvatarPicker(QStringLiteral("avatar.png"), parent);
+QObject::connect(picker, &qfw::AvatarPicker::imageChanged, picker, [](const QImage& image) { qDebug() << image.size(); });
+```
+
+### C++ [ImageCropper](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/image_cropper.h)
+
+![ImageCropper](/img/components/imagecropper/ImageCropper.png)
+
+```cpp
+#include <components/widgets/image_cropper.h>
+auto* widget = new qfw::ImageCropper(parent);
+widget->setImage(QStringLiteral("photo.png"));
+widget->setCropShape(qfw::CropShape::CIRCLE);
+QObject::connect(widget, &qfw::ImageCropper::imageCropped, widget, [](const QImage& image) { image.save(QStringLiteral("cropped.png")); });
+```
+
+### C++ [ImageComparisonSlider](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/image_comparison.h)
+
+![ImageComparisonSlider](/img/components/label/ImageComparisonSlider.png)
+
+```cpp
+#include <components/widgets/image_comparison.h>
+auto* widget = new qfw::ImageComparisonSlider(parent);
+widget->setImages(QStringLiteral("before.png"), QStringLiteral("after.png"));
+widget->setValue(0.5);
+```
+
+### C++ [ImageMagnifierWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/image_magnifier.h)
+
+![ImageMagnifierWidget](/img/components/label/ImageMagnifierWidget.png)
+
+```cpp
+#include <components/widgets/image_magnifier.h>
+auto* widget = new qfw::ImageMagnifierWidget(parent);
+widget->setImage(QStringLiteral("photo.png"));
+widget->setMagnification(3);
+widget->setRadius(80);
+```
 
 </template>
 </LanguageTabs>

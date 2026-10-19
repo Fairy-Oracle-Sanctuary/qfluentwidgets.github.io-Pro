@@ -461,6 +461,8 @@ self.demoWindow.show()
 
 ## [FluentWidget](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/window/fluent_window/index.html#)
 
+![FluentWidget](/img/components/python/FluentWidget.png)
+
 `FluentWidget` is a frameless window component that automatically follows the theme. On Windows 11, the mica effect is enabled by default, and it supports [custom title bars](#customizable-title-bar).
 
 ```python
@@ -507,6 +509,9 @@ if __name__ == '__main__':
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -516,6 +521,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [FluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
+
+![FluentWindow](/img/components/fluent_window/FluentWindow.png)
 
 ```cpp
 #include <window/fluent_window.h>
@@ -531,6 +538,8 @@ window->show();
 
 ### C++ [SplitFluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
 
+![SplitFluentWindow](/img/components/fluent_window/SplitFluentWindow.png)
+
 ```cpp
 #include <window/fluent_window.h>
 
@@ -544,6 +553,8 @@ window->show();
 ```
 
 ### C++ [MSFluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
+
+![MSFluentWindow](/img/components/fluent_window/MSFluentWindow.png)
 
 ```cpp
 #include <window/fluent_window.h>
@@ -559,6 +570,8 @@ window->show();
 
 ### C++ [TopFluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
 
+![TopFluentWindow](/img/components/topnavigationbar/TopNavigationBar.png)
+
 ```cpp
 #include <window/fluent_window.h>
 
@@ -573,6 +586,8 @@ window->show();
 
 ### C++ [FluentWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
 
+![FluentWidget](/img/components/python/FluentWidget.png)
+
 ```cpp
 #include <window/fluent_window.h>
 
@@ -582,11 +597,54 @@ window->resize(600, 400);
 window->show();
 ```
 
-## C++ Not yet implemented
+### C++ Win11 backdrop recovery
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+Native WebEngine / OpenGL child windows can invalidate Mica, rounded corners, and shadows. Use `FramelessWebEngineView` (link `qtfluentwidgets_chart`) and reapply Mica after showing the host window. This example requires the chart dependencies listed in the installation guide:
 
-- `FilledFluentWindow`
+```cpp
+#include <QApplication>
+#include <QVBoxLayout>
+#include <QUrl>
+#include <qtfluentwidgets.h>
+#include <components/widgets/frameless_web_engine_view.h>
+
+int main(int argc, char* argv[]) {
+    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+    QApplication app(argc, argv);
+    Q_INIT_RESOURCE(resource);
+    qfw::SplitFluentWindow window;
+    auto* page = new QWidget(&window);
+    page->setObjectName(QStringLiteral("webPage"));
+    auto* layout = new QVBoxLayout(page);
+    auto* browser = new qfw::FramelessWebEngineView(page);
+    layout->addWidget(browser);
+    browser->setHtml(QStringLiteral("<h1>Fluent WebEngine</h1>"));
+    window.addSubInterface(page, qfw::FluentIcon(qfw::FluentIconEnum::Home).qicon(), QStringLiteral("Web"));
+    window.resize(900, 700);
+    window.show();
+    window.setMicaEffectEnabled(true);
+    return app.exec();
+}
+```
+
+For `QOpenGLWidget`, call `window.updateFrameless()` after constructing the child interface, then `window.setMicaEffectEnabled(true)` after `window.show()`. Native frame recovery applies to Windows; other platforms retain their regular backdrop.
+
+### C++ [FilledFluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/filled_fluent_window.h)
+
+![FilledFluentWindow](/img/components/fluent_window/FilledFluentWindow.png)
+
+A 216 px sidebar expanded by default, with accent-filled selection. Page search supports multiple words, Up/Down and Enter to navigate; Esc closes results while retaining the query.
+
+```cpp
+#include <window/filled_fluent_window.h>
+auto* widget = new qfw::FilledFluentWindow(parent);
+auto* page = new QWidget;
+page->setObjectName(QStringLiteral("home"));
+widget->addSubInterface(page, qfw::FluentIcon(qfw::FluentIconEnum::Home).qicon(), QStringLiteral("Home"));
+widget->resize(900, 640);
+widget->show();
+widget->setMicaEffectEnabled(true);
+```
 
 </template>
 </LanguageTabs>

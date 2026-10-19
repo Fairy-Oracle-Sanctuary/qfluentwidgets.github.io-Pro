@@ -60,6 +60,8 @@ picker.rangeChanged.connect(lambda start, end: print(start, end))
 
 ### [FastRangeCalendarPicker](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/date_time/range_calendar_picker.py)
 
+![FastRangeCalendarPicker](/img/components/python/FastRangeCalendarPicker.png)
+
 日期范围选择器的快速版本，用法与 `RangeCalendarPicker` 一致。
 
 ```python
@@ -72,6 +74,8 @@ picker.rangeChanged.connect(lambda start, end: print(start, end))
 ```
 
 ### [CalendarTimePicker](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/date_time/calendar_time_picker.py)
+
+![CalendarTimePicker](/img/components/python/CalendarTimePicker.png)
 
 在同一弹窗中选择日期和时间。
 
@@ -86,6 +90,8 @@ picker.dateTimeChanged.connect(lambda value: print(value.toString()))
 ```
 
 ### [FastCalendarTimePicker](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/date_time/calendar_time_picker.py)
+
+![FastCalendarTimePicker](/img/components/python/FastCalendarTimePicker.png)
 
 日期时间选择器的快速版本。
 
@@ -102,6 +108,9 @@ picker.dateTimeChanged.connect(lambda value: print(value.toString()))
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -111,6 +120,8 @@ picker.dateTimeChanged.connect(lambda value: print(value.toString()))
 ```
 
 ### C++ [CalendarPicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/date_time/calendar_picker.h)
+
+![CalendarPicker](/img/components/calendarpicker/CalendarPicker.png)
 
 ```cpp
 #include <components/date_time/calendar_picker.h>
@@ -122,6 +133,8 @@ QObject::connect(picker, &qfw::CalendarPicker::dateChanged, parent, [](const QDa
 
 ### C++ [FastCalendarPicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/date_time/fast_calendar_picker.h)
 
+![FastCalendarPicker](/img/components/calendarpicker/CalendarPicker.png)
+
 ```cpp
 #include <components/date_time/fast_calendar_picker.h>
 
@@ -130,14 +143,51 @@ picker->setDate(QDate::currentDate());
 QObject::connect(picker, &qfw::FastCalendarPicker::dateChanged, parent, [](const QDate& date) { qDebug() << date; });
 ```
 
-## C++ 暂未实现的组件
+### C++ [RangeCalendarPicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/date_time/range_calendar_picker.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![RangeCalendarPicker](/img/components/calendarpicker/RangeCalendarPicker.png)
 
-- `RangeCalendarPicker`
-- `FastRangeCalendarPicker`
-- `CalendarTimePicker`
-- `FastCalendarTimePicker`
+```cpp
+#include <components/date_time/range_calendar_picker.h>
+auto* widget = new qfw::RangeCalendarPicker(parent);
+widget->setDateRange(QDate::currentDate(), QDate::currentDate().addDays(7));
+widget->setDisabledWeekDays({Qt::Sunday});
+```
+
+### C++ [FastRangeCalendarPicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/date_time/range_calendar_picker.h)
+
+![FastRangeCalendarPicker](/img/components/python/FastRangeCalendarPicker.png)
+
+```cpp
+#include <components/date_time/range_calendar_picker.h>
+auto* widget = new qfw::FastRangeCalendarPicker(parent);
+widget->setDateRange(QDate::currentDate(), QDate::currentDate().addDays(7));
+widget->setDisabledWeekDays({Qt::Sunday});
+```
+
+### C++ [CalendarTimePicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/date_time/calendar_time_picker.h)
+
+![CalendarTimePicker](/img/components/python/CalendarTimePicker.png)
+
+```cpp
+#include <components/date_time/calendar_time_picker.h>
+auto* widget = new qfw::CalendarTimePicker(parent);
+widget->setSecondVisible(false);
+widget->setDateTime(QDateTime::currentDateTime());
+QObject::connect(widget, &qfw::CalendarTimePicker::dateTimeChanged, widget, [](const QDateTime& value) { qDebug() << value; });
+```
+
+### C++ [FastCalendarTimePicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/date_time/calendar_time_picker.h)
+
+![FastCalendarTimePicker](/img/components/python/FastCalendarTimePicker.png)
+
+```cpp
+#include <components/date_time/calendar_time_picker.h>
+auto* widget = new qfw::FastCalendarTimePicker(parent);
+widget->setSecondVisible(false);
+widget->setDateTime(QDateTime::currentDateTime());
+QObject::connect(widget, &qfw::CalendarTimePicker::dateTimeChanged, widget, [](const QDateTime& value) { qDebug() << value; });
+```
 
 </template>
 </LanguageTabs>

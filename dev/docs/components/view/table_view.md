@@ -59,6 +59,8 @@ table.scrollDelagate.verticalSmoothScroll.setSmoothMode(SmoothMode.NO_SMOOTH)
 
 ### [TableView](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/table_view/index.html#qfluentwidgets.components.widgets.table_view.TableView)
 
+![TableView](/img/components/python/TableView.png)
+
 The usage of `TableView` is completely the same as `QTableView`.
 
 
@@ -83,6 +85,8 @@ tableWidget.setItem(1, 1, QTableWidgetItem('6'))
 ```
 
 ### [RoundTableView](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/table_view.py)
+
+![RoundTableView](/img/components/python/RoundTableView.png)
 
 The usage of `RoundTableView` is exactly the same as `QTableView`.
 
@@ -120,6 +124,8 @@ tableWidget.setItem(1, 1, QTableWidgetItem('6'))
 
 ### [LineTableView](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/table_view.py)
 
+![LineTableView](/img/components/python/LineTableView.png)
+
 The usage of `LineTableView` is exactly the same as `QTableView`.
 
 ```python
@@ -137,6 +143,9 @@ tableView.setModel(model)
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -146,6 +155,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [TableWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/table_view.h)
+
+![TableWidget](/img/components/tableview/TableView.png)
 
 ```cpp
 #include <components/widgets/table_view.h>
@@ -160,6 +171,8 @@ table->setItem(0, 1, new QTableWidgetItem(QStringLiteral("50")));
 
 ### C++ [TableView](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/table_view.h)
 
+![TableView](/img/components/python/TableView.png)
+
 ```cpp
 #include <components/widgets/table_view.h>
 
@@ -173,14 +186,57 @@ model->setItem(0, 1, new QStandardItem(QStringLiteral("50")));
 table->setModel(model);
 ```
 
-## C++ Not yet implemented
+### C++ [RoundTableWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_table_view.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![RoundTableWidget](/img/components/tableview/RoundTableView.png)
 
-- `RoundTableWidget`
-- `RoundTableView`
-- `LineTableWidget`
-- `LineTableView`
+```cpp
+#include <components/widgets/extended_table_view.h>
+auto* widget = new qfw::RoundTableWidget(parent);
+widget->setColumnCount(2);
+widget->setRowCount(1);
+widget->setHorizontalHeaderLabels({QStringLiteral("Name"), QStringLiteral("Status")});
+widget->setItem(0, 0, new QTableWidgetItem(QStringLiteral("Qt")));
+```
+
+### C++ [RoundTableView](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_table_view.h)
+
+![RoundTableView](/img/components/python/RoundTableView.png)
+
+```cpp
+#include <QStandardItemModel>
+#include <components/widgets/extended_table_view.h>
+auto* widget = new qfw::RoundTableView(parent);
+auto* model = new QStandardItemModel(1, 2, widget);
+model->setItem(0, 0, new QStandardItem(QStringLiteral("Qt")));
+widget->setModel(model);
+```
+
+### C++ [LineTableWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_table_view.h)
+
+![LineTableWidget](/img/components/tableview/LineTableView.png)
+
+```cpp
+#include <components/widgets/extended_table_view.h>
+auto* widget = new qfw::LineTableWidget(parent);
+widget->setColumnCount(2);
+widget->setRowCount(1);
+widget->setHorizontalHeaderLabels({QStringLiteral("Name"), QStringLiteral("Status")});
+widget->setItem(0, 0, new QTableWidgetItem(QStringLiteral("Qt")));
+```
+
+### C++ [LineTableView](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_table_view.h)
+
+![LineTableView](/img/components/python/LineTableView.png)
+
+```cpp
+#include <QStandardItemModel>
+#include <components/widgets/extended_table_view.h>
+auto* widget = new qfw::LineTableView(parent);
+auto* model = new QStandardItemModel(1, 2, widget);
+model->setItem(0, 0, new QStandardItem(QStringLiteral("Qt")));
+widget->setModel(model);
+```
 
 </template>
 </LanguageTabs>

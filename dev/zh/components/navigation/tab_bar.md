@@ -161,6 +161,9 @@ tabWidget.tabCloseRequested.connect(tabWidget.removeTab)
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -170,6 +173,8 @@ tabWidget.tabCloseRequested.connect(tabWidget.removeTab)
 ```
 
 ### C++ [TabBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tab_view.h)
+
+![TabBar](/img/components/tabbar/TabBar.png)
 
 ```cpp
 #include <components/widgets/tab_view.h>
@@ -186,6 +191,8 @@ QObject::connect(bar, &qfw::TabBar::tabCloseRequested, parent, [bar](int index) 
 
 ### C++ [TabWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tab_view.h)
 
+![TabWidget](/img/components/tabbar/TabBar.png)
+
 ```cpp
 #include <components/widgets/tab_view.h>
 
@@ -196,12 +203,27 @@ tabs->setCurrentIndex(0);
 tabs->setTabsClosable(true);
 ```
 
-## C++ 暂未实现的组件
+### C++ [RoundTabBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_tab_bar.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![RoundTabBar](/img/components/tabbar/RoundTabBar.png)
 
-- `RoundTabBar`
-- `RoundTabWidget`
+```cpp
+#include <components/widgets/round_tab_bar.h>
+auto* widget = new qfw::RoundTabBar(parent);
+widget->addTab(QStringLiteral("home"), QStringLiteral("Home"));
+widget->addTab(QStringLiteral("settings"), QStringLiteral("Settings"));
+```
+
+### C++ [RoundTabWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_tab_widget.h)
+
+![RoundTabWidget](/img/components/tabbar/RoundTabWidget.png)
+
+```cpp
+#include <components/widgets/round_tab_widget.h>
+auto* widget = new qfw::RoundTabWidget(parent);
+widget->addTab(new QWidget(widget), QStringLiteral("Home"));
+widget->addTab(new QWidget(widget), QStringLiteral("Settings"));
+```
 
 </template>
 </LanguageTabs>

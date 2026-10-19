@@ -44,6 +44,9 @@ dropWidget.draggedChange.connect(lambda paths: print(paths))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -52,12 +55,29 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 #include <memory>
 ```
 
-## C++ Not yet implemented
+### C++ [DropSingleFolderWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/drop_widget.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![DropSingleFolderWidget](/img/components/folderpicker/DropSingleFolderWidget.png)
 
-- `DropSingleFolderWidget`
-- `DropMultiFoldersWidget`
+```cpp
+#include <QDir>
+#include <components/widgets/drop_widget.h>
+auto* widget = new qfw::DropSingleFolderWidget(parent);
+widget->setDefaultDir(QDir::homePath());
+QObject::connect(widget, &qfw::DropMultiFilesWidget::selectionChange, widget, [](const QStringList& paths) { qDebug() << paths; });
+```
+
+### C++ [DropMultiFoldersWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/drop_widget.h)
+
+![DropMultiFoldersWidget](/img/components/folderpicker/DropMultiFoldersWidget.png)
+
+```cpp
+#include <QDir>
+#include <components/widgets/drop_widget.h>
+auto* widget = new qfw::DropMultiFoldersWidget(parent);
+widget->setDefaultDir(QDir::homePath());
+QObject::connect(widget, &qfw::DropMultiFilesWidget::selectionChange, widget, [](const QStringList& paths) { qDebug() << paths; });
+```
 
 </template>
 </LanguageTabs>

@@ -47,6 +47,8 @@ comboBox.setCurrentIndex(-1)
 
 ## [ModelComboBox](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/combo_box/index.html#qfluentwidgets.components.widgets.model_combo_box.ModelComboBox)
 
+![ModelComboBox](/img/components/python/ModelComboBox.png)
+
 The usage of `ModelComboBox` is exactly the same as `ComboBox`, and it supports setting a custom data model (which must be a subclass of `QAbstractItemModel`), thereby achieving two-way binding between data and the interface.
 
 ```python
@@ -93,6 +95,8 @@ comboBox.setCompleter(completer)
 ```
 
 ## [EditableModelComboBox](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/combo_box/index.html#qfluentwidgets.components.widgets.model_combo_box.EditableModelComboBox)
+
+![EditableModelComboBox](/img/components/python/EditableModelComboBox.png)
 
 The usage of `EditableModelComboBox` is exactly the same as `EditableComboBox`, and it supports setting a custom data model (which must be a subclass of `QAbstractItemModel`), thereby achieving two-way binding between data and the interface.
 
@@ -184,6 +188,9 @@ comboBox.currentFontChanged.connect(lambda font: print(font.family()))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -193,6 +200,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [ComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/combo_box.h)
+
+![ComboBox](/img/components/combobox/ComboBox.png)
 
 ```cpp
 #include <components/widgets/combo_box.h>
@@ -206,6 +215,8 @@ QObject::connect(combo, &qfw::ComboBox::currentTextChanged, parent, [](const QSt
 
 ### C++ [ModelComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/model_combo_box.h)
 
+![ModelComboBox](/img/components/python/ModelComboBox.png)
+
 ```cpp
 #include <components/widgets/model_combo_box.h>
 
@@ -217,6 +228,8 @@ QObject::connect(combo, &qfw::ModelComboBox::currentTextChanged, parent, [](cons
 ```
 
 ### C++ [EditableComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/combo_box.h)
+
+![EditableComboBox](/img/components/combobox/EditableComboBox.png)
 
 ```cpp
 #include <components/widgets/combo_box.h>
@@ -230,6 +243,8 @@ QObject::connect(combo, &qfw::EditableComboBox::currentTextChanged, parent, [](c
 
 ### C++ [EditableModelComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/model_combo_box.h)
 
+![EditableModelComboBox](/img/components/python/EditableModelComboBox.png)
+
 ```cpp
 #include <components/widgets/model_combo_box.h>
 
@@ -240,15 +255,66 @@ combo->setFixedWidth(220);
 QObject::connect(combo, &qfw::EditableModelComboBox::currentTextChanged, parent, [](const QString& text) { qDebug() << text; });
 ```
 
+### C++ [MultiSelectionComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_combo_box.h)
+
+![MultiSelectionComboBox](/img/components/combobox/MultiSelectionComboBox.png)
+
+```cpp
+#include <components/widgets/extended_combo_box.h>
+auto* widget = new qfw::MultiSelectionComboBox(parent);
+widget->addItems({QStringLiteral("Qt"), QStringLiteral("C++"), QStringLiteral("Python")});
+widget->setSelectedIndices({0, 1});
+widget->setChipsMode(true);
+```
+
+### C++ [TreeComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tree_combo_box.h)
+
+![TreeComboBox](/img/components/combobox/TreeComboBox.png)
+
+Only leaves are selectable. External models remain caller-owned and their check states are not modified.
+
+```cpp
+#include <components/widgets/tree_combo_box.h>
+auto* combo = new qfw::TreeComboBox(parent);
+const auto group = combo->addItem(QStringLiteral("Languages"));
+const auto cpp = combo->addItem(QStringLiteral("C++"), group);
+combo->addItem(QStringLiteral("Python"), group);
+combo->setSearchEnabled(true);
+combo->setCurrentModelIndex(cpp);
+```
+
+### C++ [MultiSelectionTreeComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tree_combo_box.h)
+
+![MultiSelectionTreeComboBox](/img/components/combobox/MultiSelectionTreeComboBox.png)
+
+Only leaves are selectable. External models remain caller-owned and their check states are not modified.
+
+```cpp
+#include <components/widgets/tree_combo_box.h>
+auto* combo = new qfw::MultiSelectionTreeComboBox(parent);
+const auto group = combo->addItem(QStringLiteral("Languages"));
+const auto cpp = combo->addItem(QStringLiteral("C++"), group);
+combo->addItem(QStringLiteral("Python"), group);
+combo->setSearchEnabled(true);
+combo->setSelectedIndexes({cpp});
+```
+
+### C++ [FontComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_combo_box.h)
+
+![FontComboBox](/img/components/combobox/FontComboBox.png)
+
+```cpp
+#include <components/widgets/extended_combo_box.h>
+auto* widget = new qfw::FontComboBox(parent);
+widget->setFontFilters(qfw::FontComboBox::MonospacedFonts);
+widget->setCurrentFont(QFont(QStringLiteral("Consolas")));
+```
+
 ## C++ Not yet implemented
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+The current C++ source does not provide these types. Upstream descriptions are retained without non-compiling examples.
 
-- `MultiSelectionComboBox`
-- `TreeComboBox`
-- `MultiSelectionTreeComboBox`
 - `TransparentComboBox`
-- `FontComboBox`
 
 </template>
 </LanguageTabs>

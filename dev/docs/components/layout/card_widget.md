@@ -73,6 +73,8 @@ card.setBorderRadius(8)
 
 ### [SimpleCardWidget](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/card_widget/index.html#qfluentwidgets.components.widgets.card_widget.SimpleCardWidget)
 
+![SimpleCardWidget](/img/components/python/SimpleCardWidget.png)
+
 `SimpleCardWidget` is the subclass of `CardWidget`, the only different between them is the background color of `SimpleCardWidget` won't change when mouse hovers or leaves.
 
 ### [ElevatedCardWidget](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/card_widget/index.html#qfluentwidgets.components.widgets.card_widget.ElevatedCardWidget)
@@ -191,6 +193,8 @@ class SettinsCard(GroupHeaderCardWidget):
 
 ### [DashboardCardWidget](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/dashboard_card.py)
 
+![DashboardCardWidget](/img/components/python/DashboardCardWidget.png)
+
 A dashboard card based on `SimpleCardWidget`, with an icon, title, description, switch and custom content.
 
 ```python
@@ -207,6 +211,9 @@ card.setCardBackgroundColor('#eef6fc', '#293036')
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -217,6 +224,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 
 ### C++ [CardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
 
+![CardWidget](/img/components/cardwidget/CardWidget.png)
+
 ```cpp
 #include <components/widgets/card_widget.h>
 
@@ -225,6 +234,8 @@ card->setFixedSize(360, 160);
 ```
 
 ### C++ [SimpleCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
+
+![SimpleCardWidget](/img/components/python/SimpleCardWidget.png)
 
 ```cpp
 #include <components/widgets/card_widget.h>
@@ -235,6 +246,8 @@ card->setFixedSize(360, 160);
 
 ### C++ [ElevatedCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
 
+![ElevatedCardWidget](/img/components/cardwidget/ElevatedCardWidget.png)
+
 ```cpp
 #include <components/widgets/card_widget.h>
 
@@ -243,6 +256,8 @@ card->setFixedSize(360, 160);
 ```
 
 ### C++ [HeaderCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
+
+![HeaderCardWidget](/img/components/cardwidget/HeaderCardWidget.png)
 
 ```cpp
 #include <components/widgets/card_widget.h>
@@ -254,6 +269,8 @@ card->setTitle(QStringLiteral("Settings"));
 
 ### C++ [GroupHeaderCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
 
+![GroupHeaderCardWidget](/img/components/cardwidget/GroupHeaderCardWidget.png)
+
 ```cpp
 #include <components/widgets/card_widget.h>
 
@@ -262,11 +279,17 @@ card->setFixedSize(360, 160);
 card->setTitle(QStringLiteral("Settings"));
 ```
 
-## C++ Not yet implemented
+### C++ [DashboardCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/dashboard_card.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![DashboardCardWidget](/img/components/python/DashboardCardWidget.png)
 
-- `DashboardCardWidget`
+```cpp
+#include <components/widgets/dashboard_card.h>
+auto* widget = new qfw::DashboardCardWidget(parent);
+widget->setTitle(QStringLiteral("Sync"));
+widget->setContent(QStringLiteral("Synchronize this device"));
+widget->setChecked(true);
+```
 
 </template>
 </LanguageTabs>

@@ -115,13 +115,16 @@ For `ModuleNotFoundError`, check that you are using the virtual environment's Py
 </template>
 <template #cpp>
 
-[Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets) is a native C++ / Qt Widgets library. It currently includes only free base components, not the advanced extensions from the Python project.
+[Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets) is a native C++ / Qt Widgets library. It includes base widgets and migrated extensions such as native chat, the code editor, and acrylic widgets, without a Python runtime. Component pages describe the actual supported APIs.
 
 ## C++ requirements
 
 - Qt 5.15.2 or a newer Qt 5 release, or Qt 6, including the `Widgets` and `Svg` modules.
 - CMake 3.16 or newer and a C++17 compiler.
 - Building the Gallery also requires Qt `LinguistTools`.
+- Charts are enabled by default and require Qt `WebEngineWidgets` and `QuickWidgets`. Add `-DQFW_BUILD_CHART=OFF` when configuring a build without charts.
+
+The currently validated versions are Qt 5.15.2 and Qt 6.7.3.
 
 Your compiler and architecture must match the Qt package. For example, `msvc2019_64` requires a compatible 64-bit MSVC toolchain.
 
@@ -145,7 +148,7 @@ cmake --build build-qt515 --config Release --parallel
 
 Typical Gallery executable locations:
 
-- Windows / Visual Studio: `build/app/Release/qtfluentwidgets_app.exe`.
+- Windows / Visual Studio: `build/Release/qtfluentwidgets_app.exe` or `build/app/Release/qtfluentwidgets_app.exe`, depending on the build configuration.
 - Linux / single-configuration build: `build/app/qtfluentwidgets_app`.
 - macOS: usually an application bundle under `build/app`.
 
@@ -162,6 +165,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Svg)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Svg)
+
+set(QFW_BUILD_CHART OFF CACHE BOOL "Build ECharts support" FORCE)
 
 add_subdirectory(
     ${CMAKE_CURRENT_SOURCE_DIR}/third_party/Qt-Fluent-Widgets/qtfluentwidgets
@@ -193,6 +198,16 @@ int main(int argc, char* argv[]) {
 }
 ```
 
+## C++ optional chart module
+
+Charts use a separate target. Change `QFW_BUILD_CHART` above to `ON`, then link it after creating your application target:
+
+```cmake
+target_link_libraries(my_app PRIVATE qtfluentwidgets qtfluentwidgets_chart)
+```
+
+Include `<components/widgets/chart_widget.h>` explicitly; it is not in the umbrella header. Call `QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts)` **before** constructing `QApplication`. ECharts is bundled locally and does not require a CDN. See [chart examples](/pages/components/chartwidget/) and [window backdrop recovery](/pages/components/fluentwindow/).
+
 ## C++ Windows deployment
 
 Linking this static widget library does not statically link the Qt runtime. Use `windeployqt` from the same Qt installation used to build your application to deploy the required runtime libraries and plugins:
@@ -202,6 +217,8 @@ D:/Qt/5.15.2/msvc2019_64/bin/windeployqt.exe --release build-qt515/app/Release/q
 ```
 
 If CMake cannot find Qt, check `CMAKE_PREFIX_PATH`. For missing Qt DLLs at runtime, run the matching `windeployqt`. See the [repository README](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets#readme) for further platform and build details.
+
+With charts enabled, also deploy QtWebEngineProcess, WebEngine resources, locales, and Qt Quick/QML dependencies. The repository’s `scripts/check_release.ps1` runs regression checks and deployment. Packages are written to `build/package/Release/Qt-Fluent-Widgets` (Qt 6) or `build-qt515/package/Release/Qt-Fluent-Widgets` (Qt 5). Retain the repository licenses and third-party notices when distributing a package.
 
 </template>
 </InstallTabs>

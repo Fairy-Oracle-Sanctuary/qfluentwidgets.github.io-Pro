@@ -170,6 +170,9 @@ self.guideWindow.show()
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -179,6 +182,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [Pivot](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/pivot.h)
+
+![Pivot](/img/components/topnavigationbar/Pivot.png)
 
 ```cpp
 #include <components/navigation/pivot.h>
@@ -192,6 +197,8 @@ QObject::connect(pivot, &qfw::Pivot::currentItemChanged, parent, [](const QStrin
 
 ### C++ [SegmentedWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/segmented_widget.h)
 
+![SegmentedWidget](/img/components/topnavigationbar/SegmentedWidget.png)
+
 ```cpp
 #include <components/navigation/segmented_widget.h>
 
@@ -204,6 +211,8 @@ QObject::connect(pivot, &qfw::Pivot::currentItemChanged, parent, [](const QStrin
 
 ### C++ [SegmentedToolWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/segmented_widget.h)
 
+![SegmentedToolWidget](/img/components/topnavigationbar/SegmentedToolWidget.png)
+
 ```cpp
 #include <components/navigation/segmented_widget.h>
 
@@ -215,6 +224,8 @@ bar->setCurrentItem(QStringLiteral("add"));
 
 ### C++ [SegmentedToggleToolWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/segmented_widget.h)
 
+![SegmentedToggleToolWidget](/img/components/topnavigationbar/SegmentedToggleToolWidget.png)
+
 ```cpp
 #include <components/navigation/segmented_widget.h>
 
@@ -225,6 +236,8 @@ bar->setCurrentItem(QStringLiteral("add"));
 ```
 
 ### C++ [TopNavigationBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/top_navigation_interface.h)
+
+![TopNavigationBar](/img/components/topnavigationbar/TopNavigationBar.png)
 
 This example uses the C++ `TopNavigationInterface` class, whose name or usage differs from Python.
 
@@ -238,11 +251,21 @@ navigation->addItem(QStringLiteral("home"), qfw::FluentIcon(qfw::FluentIconEnum:
 navigation->setCurrentItem(QStringLiteral("home"));
 ```
 
+### C++ [MenuBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/menu_bar.h)
+
+![MenuBar](/img/components/topnavigationbar/MenuBar.png)
+
+```cpp
+#include <components/widgets/menu_bar.h>
+auto* widget = new qfw::MenuBar(parent);
+auto* file = widget->addMenu(QStringLiteral("File"));
+file->addAction(new QAction(QStringLiteral("Open"), file));
+```
+
 ## C++ Not yet implemented
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+The current C++ source does not provide these types. Upstream descriptions are retained without non-compiling examples.
 
-- `MenuBar`
 - `GuideWindow`
 
 </template>

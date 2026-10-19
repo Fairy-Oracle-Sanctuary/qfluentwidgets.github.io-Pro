@@ -144,6 +144,9 @@ self.flyoutDialog.accepted.connect(lambda: print('accepted'))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -153,6 +156,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [Flyout](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/flyout.h)
+
+![Flyout](/img/components/flyout/Flyout.png)
 
 ```cpp
 #include <components/widgets/flyout.h>
@@ -165,6 +170,8 @@ QObject::connect(button, &QPushButton::clicked, parent, [button, parent] {
 ```
 
 ### C++ [FlyoutViewBase](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/flyout.h)
+
+![FlyoutViewBase](/img/components/flyout/CustomFlyout.png)
 
 ```cpp
 #include <components/widgets/flyout.h>
@@ -186,11 +193,20 @@ QObject::connect(button, &QPushButton::clicked, parent, [button, parent] {
 });
 ```
 
-## C++ Not yet implemented
+### C++ [FlyoutDialog](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/flyout_dialog.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![FlyoutDialog](/img/components/flyout/FlyoutDialog.png)
 
-- `FlyoutDialog`
+Create a new heap-owned view for each opening; the popup deletes it after closing.
+
+```cpp
+#include <components/widgets/flyout_dialog.h>
+auto* anchor = new qfw::PushButton(QStringLiteral("Confirm"), parent);
+QObject::connect(anchor, &QAbstractButton::clicked, anchor, [anchor, parent] {
+    auto* view = new qfw::FlyoutDialog(QStringLiteral("Confirm"), QStringLiteral("Save changes?"));
+    view->showAt(anchor, parent);
+});
+```
 
 </template>
 </LanguageTabs>

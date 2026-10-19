@@ -49,6 +49,8 @@ print(label.url)
 
 ### [Watermark](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/watermark.py)
 
+![Watermark](/img/components/python/Watermark.png)
+
 覆盖在目标组件上的文本水印，支持角度、透明度和间距设置，不拦截鼠标事件。
 
 水印会跟随目标组件尺寸变化，且不拦截鼠标；需要覆盖某个内容区时，把该内容区作为 parent 传入。
@@ -66,6 +68,9 @@ self.watermark.show()
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -75,6 +80,8 @@ self.watermark.show()
 ```
 
 ### C++ [FluentLabelBase](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/label.h)
+
+![FluentLabelBase](/img/components/label/FluentLabel.png)
 
 本例使用 C++ 中的 `BodyLabel`，与 Python 的类名或使用方式不同。
 
@@ -87,17 +94,24 @@ label->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
 ### C++ [HyperlinkLabel](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/label.h)
 
+![HyperlinkLabel](/img/components/label/HyperlinkLabel.png)
+
 ```cpp
 #include <components/widgets/label.h>
 
 auto* label = new qfw::HyperlinkLabel(QStringLiteral("https://fairy.ora-san.org/"), QStringLiteral("Visit website"), parent);
 ```
 
-## C++ 暂未实现的组件
+### C++ [Watermark](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/watermark.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![Watermark](/img/components/python/Watermark.png)
 
-- `Watermark`
+```cpp
+#include <components/widgets/watermark.h>
+auto* watermark = new qfw::Watermark(QStringLiteral("Internal preview"), parent);
+watermark->setOpacity(0.12);
+watermark->setAngle(-30);
+```
 
 </template>
 </LanguageTabs>

@@ -163,6 +163,9 @@ tabWidget.tabCloseRequested.connect(tabWidget.removeTab)
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -172,6 +175,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [TabBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tab_view.h)
+
+![TabBar](/img/components/tabbar/TabBar.png)
 
 ```cpp
 #include <components/widgets/tab_view.h>
@@ -188,6 +193,8 @@ QObject::connect(bar, &qfw::TabBar::tabCloseRequested, parent, [bar](int index) 
 
 ### C++ [TabWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tab_view.h)
 
+![TabWidget](/img/components/tabbar/TabBar.png)
+
 ```cpp
 #include <components/widgets/tab_view.h>
 
@@ -198,12 +205,27 @@ tabs->setCurrentIndex(0);
 tabs->setTabsClosable(true);
 ```
 
-## C++ Not yet implemented
+### C++ [RoundTabBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_tab_bar.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![RoundTabBar](/img/components/tabbar/RoundTabBar.png)
 
-- `RoundTabBar`
-- `RoundTabWidget`
+```cpp
+#include <components/widgets/round_tab_bar.h>
+auto* widget = new qfw::RoundTabBar(parent);
+widget->addTab(QStringLiteral("home"), QStringLiteral("Home"));
+widget->addTab(QStringLiteral("settings"), QStringLiteral("Settings"));
+```
+
+### C++ [RoundTabWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_tab_widget.h)
+
+![RoundTabWidget](/img/components/tabbar/RoundTabWidget.png)
+
+```cpp
+#include <components/widgets/round_tab_widget.h>
+auto* widget = new qfw::RoundTabWidget(parent);
+widget->addTab(new QWidget(widget), QStringLiteral("Home"));
+widget->addTab(new QWidget(widget), QStringLiteral("Settings"));
+```
 
 </template>
 </LanguageTabs>

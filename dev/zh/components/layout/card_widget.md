@@ -73,6 +73,8 @@ card.setBorderRadius(8)
 
 ### [SimpleCardWidget](https://pyqt-fluent-widgets.readthedocs.io/zh_CN/latest/autoapi/qfluentwidgets/components/widgets/card_widget/index.html#qfluentwidgets.components.widgets.card_widget.SimpleCardWidget)
 
+![SimpleCardWidget](/img/components/python/SimpleCardWidget.png)
+
 `SimpleCardWidget` 是 `CardWidget` 子类，二者之间唯一的区别就是 `SimpleCardWidget` 的背景不会随着鼠标进入进出而变化。
 
 ### [ElevatedCardWidget](https://pyqt-fluent-widgets.readthedocs.io/zh_CN/latest/autoapi/qfluentwidgets/components/widgets/card_widget/index.html#qfluentwidgets.components.widgets.card_widget.ElevatedCardWidget)
@@ -190,6 +192,8 @@ class SettinsCard(GroupHeaderCardWidget):
 
 ### [DashboardCardWidget](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/dashboard_card.py)
 
+![DashboardCardWidget](/img/components/python/DashboardCardWidget.png)
+
 基于 `SimpleCardWidget` 的仪表盘卡片，支持图标、标题、说明、开关和自定义内容。
 
 ```python
@@ -206,6 +210,9 @@ card.setCardBackgroundColor('#eef6fc', '#293036')
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -216,6 +223,8 @@ card.setCardBackgroundColor('#eef6fc', '#293036')
 
 ### C++ [CardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
 
+![CardWidget](/img/components/cardwidget/CardWidget.png)
+
 ```cpp
 #include <components/widgets/card_widget.h>
 
@@ -224,6 +233,8 @@ card->setFixedSize(360, 160);
 ```
 
 ### C++ [SimpleCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
+
+![SimpleCardWidget](/img/components/python/SimpleCardWidget.png)
 
 ```cpp
 #include <components/widgets/card_widget.h>
@@ -234,6 +245,8 @@ card->setFixedSize(360, 160);
 
 ### C++ [ElevatedCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
 
+![ElevatedCardWidget](/img/components/cardwidget/ElevatedCardWidget.png)
+
 ```cpp
 #include <components/widgets/card_widget.h>
 
@@ -242,6 +255,8 @@ card->setFixedSize(360, 160);
 ```
 
 ### C++ [HeaderCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
+
+![HeaderCardWidget](/img/components/cardwidget/HeaderCardWidget.png)
 
 ```cpp
 #include <components/widgets/card_widget.h>
@@ -253,6 +268,8 @@ card->setTitle(QStringLiteral("Settings"));
 
 ### C++ [GroupHeaderCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/card_widget.h)
 
+![GroupHeaderCardWidget](/img/components/cardwidget/GroupHeaderCardWidget.png)
+
 ```cpp
 #include <components/widgets/card_widget.h>
 
@@ -261,11 +278,17 @@ card->setFixedSize(360, 160);
 card->setTitle(QStringLiteral("Settings"));
 ```
 
-## C++ 暂未实现的组件
+### C++ [DashboardCardWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/dashboard_card.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![DashboardCardWidget](/img/components/python/DashboardCardWidget.png)
 
-- `DashboardCardWidget`
+```cpp
+#include <components/widgets/dashboard_card.h>
+auto* widget = new qfw::DashboardCardWidget(parent);
+widget->setTitle(QStringLiteral("Sync"));
+widget->setContent(QStringLiteral("Synchronize this device"));
+widget->setChecked(true);
+```
 
 </template>
 </LanguageTabs>

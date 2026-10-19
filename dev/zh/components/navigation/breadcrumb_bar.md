@@ -98,6 +98,9 @@ class Demo(QWidget):
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -107,6 +110,8 @@ class Demo(QWidget):
 ```
 
 ### C++ [BreadcrumbBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/breadcrumb.h)
+
+![BreadcrumbBar](/img/components/breadcrumbbar/BreadCrumbBar.png)
 
 ```cpp
 #include <components/navigation/breadcrumb.h>

@@ -13,6 +13,8 @@ The Pro examples use `qfluentwidgets_pro` and follow the same concise style as t
 
 ### [RatingWidget](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/rating_widget.py)
 
+![RatingWidget](/img/components/python/RatingWidget.png)
+
 A read-only star rating supporting fractional values.
 
 ```python
@@ -25,6 +27,8 @@ print(rating.value())
 ```
 
 ### [InteractiveRatingWidget](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/rating_widget.py)
+
+![InteractiveRatingWidget](/img/components/python/InteractiveRatingWidget.png)
 
 An interactive rating that can be changed with mouse or keyboard.
 
@@ -39,6 +43,9 @@ rating.valueChanged.connect(lambda value: print(value))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -47,12 +54,27 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 #include <memory>
 ```
 
-## C++ Not yet implemented
+### C++ [RatingWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/rating_widget.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![RatingWidget](/img/components/python/RatingWidget.png)
 
-- `RatingWidget`
-- `InteractiveRatingWidget`
+```cpp
+#include <components/widgets/rating_widget.h>
+auto* widget = new qfw::RatingWidget(parent);
+widget->setDecimals(1);
+widget->setValue(3.5);
+```
+
+### C++ [InteractiveRatingWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/rating_widget.h)
+
+![InteractiveRatingWidget](/img/components/python/InteractiveRatingWidget.png)
+
+```cpp
+#include <components/widgets/rating_widget.h>
+auto* widget = new qfw::InteractiveRatingWidget(parent);
+widget->setDecimals(1);
+widget->setValue(3.5);
+```
 
 </template>
 </LanguageTabs>

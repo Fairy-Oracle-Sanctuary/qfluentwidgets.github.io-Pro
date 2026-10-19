@@ -43,6 +43,9 @@ chatWidget.sendRequested.connect(lambda text: print(text))
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -51,11 +54,23 @@ chatWidget.sendRequested.connect(lambda text: print(text))
 #include <memory>
 ```
 
-## C++ 暂未实现的组件
+### C++ [ChatWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/chat_widget.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![ChatWidget](/img/components/chart/ChatWidget.png)
 
-- `ChatWidget`
+原生 Qt Widgets 聊天区，内置 Markdown、代码高亮和公式排版，不内置 AI 网络请求。流式更新在 GUI 线程执行；不支持的公式语法保留源码。可用 addImageMessage()/addWidgetMessage() 加入图片或自定义卡片。
+
+```cpp
+#include <components/widgets/chat_widget.h>
+auto* chat = new qfw::ChatWidget(parent);
+chat->setMaximumBubbleWidth(640);
+chat->setMessageToolBarEnabled(true);
+chat->addMessage(QStringLiteral("Hello!"), QStringLiteral("user"), QStringLiteral("You"));
+const auto id = chat->addMessage(QString(), QStringLiteral("assistant"), QString(), QImage(), QString(), true);
+chat->appendText(id, QStringLiteral("**Hello**, welcome!\n\n$\\frac{1}{2}$"));
+chat->finishMessage(id);
+QObject::connect(chat, &qfw::ChatWidget::sendRequested, chat, [](const QString& text) { qDebug() << text; });
+```
 
 </template>
 </LanguageTabs>

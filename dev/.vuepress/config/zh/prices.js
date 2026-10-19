@@ -23,14 +23,14 @@ export const prices = {
         {
             id: 'cpp',
             title: 'C++',
-            desc: '基于 Qt 的 C++ 组件库，目前仅包含免费基础组件。',
+            desc: '基于 Qt 的 C++ 组件库，包含基础组件及已迁移的高级扩展。',
             price: '0',
             url: 'https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets',
             features: [
                 { feature: 'C++ / Qt' },
                 { feature: '免费基础 Fluent Design 组件' },
-                { feature: '目前不包含高级扩展组件' },
-                { feature: '可直接获取组件库源代码' },
+                { feature: '已迁移的高级扩展与 Acrylic 材质组件' },
+                { feature: '原生聊天、20 种语言代码编辑器与 ECharts 图表' },
                 { feature: '开放源码，使用条款见仓库许可证' },
             ],
         },

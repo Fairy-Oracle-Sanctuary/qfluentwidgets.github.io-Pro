@@ -124,6 +124,25 @@ test('catalog filtering retains only the selected language and its nested headin
     assert.notEqual(createDocLanguageState(), createDocLanguageState());
 });
 
+test('catalog keeps language headings nested under a hidden parent without mutating the source', async () => {
+    const { filterDocCatalog } = await import('../.vuepress/utils/doc-language.mjs');
+    const items = [{ text: 'FluentWidget', link: '#fluentwidget', level: 2, children: [
+        { text: 'Python details', link: '#details', level: 3 },
+        { text: 'C++ FluentWindow', link: '#c-fluentwindow', level: 3, children: [
+            { text: 'C++ details', link: '#c-details', level: 4 },
+        ] },
+        { text: 'C++ FilledFluentWindow', link: '#c-filledfluentwindow', level: 3 },
+    ] }];
+    const original = JSON.stringify(items);
+    const cpp = filterDocCatalog(items, 'cpp');
+    assert.deepEqual(cpp.map(item => item.link), ['#c-fluentwindow', '#c-filledfluentwindow']);
+    assert.equal(cpp[0].children[0].link, '#c-details');
+    const python = filterDocCatalog(items, 'python');
+    assert.deepEqual(python[0].children.map(item => item.link), ['#details']);
+    assert.equal(JSON.stringify(items), original);
+    assert.notEqual(python[0], items[0]);
+});
+
 test('the actual catalog follows tab selection and leaves other pages unchanged', async () => {
     const file = path.resolve(__dirname, '../.vuepress/theme/DocCatalog.vue');
     const parsed = parse(fs.readFileSync(file, 'utf8'), { filename: file });
@@ -142,11 +161,18 @@ test('the actual catalog follows tab selection and leaves other pages unchanged'
     code = `import * as Vue from ${JSON.stringify(pathToFileURL(require.resolve('vue')).href)};\n${code}`;
     globalThis.__catalogTestRoute = Vue.reactive({ path: '/zh/pages/theme/' });
     globalThis.__catalogTestItems = Vue.ref([
-        { text: '切换主题', link: '#切换主题' },
-        { text: 'C++ 切换主题', link: '#c-切换主题' },
+        { text: '切换主题', link: '#切换主题', children: [
+            { text: 'C++ 切换主题', link: '#c-切换主题' },
+        ] },
     ]);
     globalThis.__catalogTestSelection = Vue.shallowReactive({ path: '/zh/pages/theme/', language: 'python' });
-    globalThis.__catalogTestItem = { props: ['item'], render() { return Vue.h('li', [Vue.h('a', { class: 'page-catalog-item', href: this.item.link }, this.item.text)]); } };
+    globalThis.__catalogTestItem = { props: ['item'], render() {
+        const renderItem = item => Vue.h('li', [
+            Vue.h('a', { class: 'page-catalog-item', href: item.link }, item.text),
+            ...(item.children || []).map(renderItem),
+        ]);
+        return renderItem(this.item);
+    } };
     try {
         const { default: component } = await import(`data:text/javascript;base64,${Buffer.from(code).toString('base64')}`);
         const render = () => renderToString(Vue.createSSRApp(component));

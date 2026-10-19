@@ -21,8 +21,13 @@ export function releaseDocLanguage(state, owner) {
 }
 
 export function filterDocCatalog(items, language) {
-    return items.filter(item => languageFromHash(item.link) === language).map(item => ({
-        ...item,
-        children: filterDocCatalog(item.children || [], language),
-    }));
+    return items.flatMap(item => {
+        const children = filterDocCatalog(item.children || [], language);
+        // Markdown heading hierarchy spans slot boundaries. A C++ h3 can be
+        // nested beneath a Python h2, so retain matching descendants even when
+        // their parent belongs to the hidden tab.
+        return languageFromHash(item.link) === language
+            ? [{ ...item, children }]
+            : children;
+    });
 }

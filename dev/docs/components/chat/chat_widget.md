@@ -43,6 +43,9 @@ chatWidget.sendRequested.connect(lambda text: print(text))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -51,11 +54,23 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 #include <memory>
 ```
 
-## C++ Not yet implemented
+### C++ [ChatWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/chat_widget.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![ChatWidget](/img/components/chart/ChatWidget.png)
 
-- `ChatWidget`
+The native Qt Widgets chat includes Markdown, code highlighting and formula layout, but no AI network requests. Stream updates on the GUI thread. Unsupported formula syntax retains its source. Use addImageMessage()/addWidgetMessage() for images or custom cards.
+
+```cpp
+#include <components/widgets/chat_widget.h>
+auto* chat = new qfw::ChatWidget(parent);
+chat->setMaximumBubbleWidth(640);
+chat->setMessageToolBarEnabled(true);
+chat->addMessage(QStringLiteral("Hello!"), QStringLiteral("user"), QStringLiteral("You"));
+const auto id = chat->addMessage(QString(), QStringLiteral("assistant"), QString(), QImage(), QString(), true);
+chat->appendText(id, QStringLiteral("**Hello**, welcome!\n\n$\\frac{1}{2}$"));
+chat->finishMessage(id);
+QObject::connect(chat, &qfw::ChatWidget::sendRequested, chat, [](const QString& text) { qDebug() << text; });
+```
 
 </template>
 </LanguageTabs>

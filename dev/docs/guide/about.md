@@ -11,7 +11,7 @@ This is a community-maintained fork, not an official QFluentWidgets Pro release 
 ## Our component libraries
 
 - **Python / PySide6**: [PySide6-Fluent-Widgets-Pro](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro), including free base components and implemented advanced extensions.
-- **C++ / Qt**: [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets), currently including only free base components, without the advanced extensions in the Python project.
+- **C++ / Qt**: [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets), with base components and migrated extensions, including native chat, code editing, ECharts and Acrylic components. See component pages for API differences and unavailable types.
 
 Source code for both repositories is available free of charge, with no purchase tiers. Refer to each repository's license for its usage terms.
 

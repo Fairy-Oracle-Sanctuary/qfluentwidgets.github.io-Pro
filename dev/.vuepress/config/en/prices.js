@@ -23,14 +23,14 @@ export const prices = {
         {
             id: 'cpp',
             title: 'C++',
-            desc: 'A Qt-based C++ library, currently including only free base components.',
+            desc: 'A Qt-based C++ library with base components and migrated advanced extensions.',
             price: '0',
             url: 'https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets',
             features: [
                 { feature: 'C++ / Qt' },
                 { feature: 'Free base Fluent Design components' },
-                { feature: 'No advanced extensions at present' },
-                { feature: 'Component library source code available' },
+                { feature: 'Migrated advanced extensions and Acrylic components' },
+                { feature: 'Native chat, a 20-language code editor and ECharts' },
                 { feature: 'Open source; see the repository license for terms' },
             ],
         },

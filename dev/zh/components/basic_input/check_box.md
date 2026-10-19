@@ -51,6 +51,9 @@ button.toggled.connect(lambda checked: print(checked))
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -61,6 +64,8 @@ button.toggled.connect(lambda checked: print(checked))
 
 ### C++ [CheckBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/check_box.h)
 
+![CheckBox](/img/components/checkbox/CheckBox.jpg)
+
 ```cpp
 #include <components/widgets/check_box.h>
 
@@ -70,11 +75,15 @@ box->setTristate(true);
 QObject::connect(box, &QCheckBox::stateChanged, parent, [](int state) { qDebug() << state; });
 ```
 
-## C++ 暂未实现的组件
+### C++ [SubtitleCheckBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/subtitle_button.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![SubtitleCheckBox](/img/components/checkbox/SubtitleCheckBox.png)
 
-- `SubtitleCheckBox`
+```cpp
+#include <components/widgets/subtitle_button.h>
+auto* widget = new qfw::SubtitleCheckBox(QStringLiteral("Sync"), QStringLiteral("Keep local changes synchronized"), parent);
+widget->setChecked(true);
+```
 
 </template>
 </LanguageTabs>

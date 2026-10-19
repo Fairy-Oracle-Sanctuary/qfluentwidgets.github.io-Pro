@@ -49,6 +49,9 @@ button.start()
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -57,12 +60,28 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 #include <memory>
 ```
 
-## C++ Not yet implemented
+### C++ [ProgressPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/progress_button.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![ProgressPushButton](/img/components/progressbutton/ProgressPushButton.png)
 
-- `ProgressPushButton`
-- `IndeterminateProgressPushButton`
+```cpp
+#include <components/widgets/progress_button.h>
+auto* widget = new qfw::ProgressPushButton(parent);
+widget->setText(QStringLiteral("Download"));
+widget->setProgressing(true);
+widget->setValue(40);
+```
+
+### C++ [IndeterminateProgressPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/progress_button.h)
+
+![IndeterminateProgressPushButton](/img/components/progressbutton/IndeterminateProgressPushButton.png)
+
+```cpp
+#include <components/widgets/progress_button.h>
+auto* widget = new qfw::IndeterminateProgressPushButton(parent);
+widget->setText(QStringLiteral("Loading"));
+widget->start();
+```
 
 </template>
 </LanguageTabs>

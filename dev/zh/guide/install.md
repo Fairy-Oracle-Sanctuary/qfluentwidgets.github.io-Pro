@@ -115,13 +115,16 @@ from qfluentwidgets_pro.components.widgets.chart_widget import ChartWidget
 </template>
 <template #cpp>
 
-[Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets) 是原生 C++ / Qt Widgets 组件库，目前仅包含免费基础组件，不包含 Python 项目中的高级扩展组件。
+[Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets) 是原生 C++ / Qt Widgets 组件库，已包含基础组件和迁移完成的聊天、代码编辑器、亚克力等扩展组件，无需 Python 运行时。各组件页面列出实际支持范围。
 
 ## C++ 环境要求
 
 - Qt 5.15.2 或更高的 Qt 5 版本，或 Qt 6，需包含 `Widgets` 和 `Svg` 模块。
 - CMake 3.16 或更高版本，以及支持 C++17 的编译器。
 - 构建 Gallery 还需要 Qt `LinguistTools`。
+- 图表默认启用，需要 Qt `WebEngineWidgets` 和 `QuickWidgets`。不使用图表时，配置参数添加 `-DQFW_BUILD_CHART=OFF`。
+
+当前验证版本为 Qt 5.15.2 和 Qt 6.7.3。
 
 编译器和架构必须与 Qt 安装包一致，例如 `msvc2019_64` 应搭配兼容的 64 位 MSVC 工具链。
 
@@ -145,7 +148,7 @@ cmake --build build-qt515 --config Release --parallel
 
 常见的 Gallery 可执行文件位置：
 
-- Windows / Visual Studio：`build/app/Release/qtfluentwidgets_app.exe`。
+- Windows / Visual Studio：`build/Release/qtfluentwidgets_app.exe`，或 `build/app/Release/qtfluentwidgets_app.exe`（依构建配置而定）。
 - Linux / 单配置构建：`build/app/qtfluentwidgets_app`。
 - macOS：通常生成在 `build/app` 下的应用 bundle 中。
 
@@ -162,6 +165,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Svg)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Svg)
+
+set(QFW_BUILD_CHART OFF CACHE BOOL "Build ECharts support" FORCE)
 
 add_subdirectory(
     ${CMAKE_CURRENT_SOURCE_DIR}/third_party/Qt-Fluent-Widgets/qtfluentwidgets
@@ -193,6 +198,16 @@ int main(int argc, char* argv[]) {
 }
 ```
 
+## C++ 可选图表模块
+
+图表是独立目标。把上述 `QFW_BUILD_CHART` 改为 `ON`，并在创建应用目标后链接：
+
+```cmake
+target_link_libraries(my_app PRIVATE qtfluentwidgets qtfluentwidgets_chart)
+```
+
+使用 `<components/widgets/chart_widget.h>`；它不在总头文件中。在创建 `QApplication` **之前**调用 `QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts)`。ECharts 脚本随库本地打包，无需 CDN。参见[图表示例](/zh/pages/components/chartwidget/)与[窗口背景恢复](/zh/pages/components/fluentwindow/)。
+
 ## C++ Windows 部署
 
 静态链接组件库不代表 Qt 运行库也被静态链接。使用与构建时相同 Qt 安装目录下的 `windeployqt`，把运行库和插件部署到程序旁边：
@@ -202,6 +217,8 @@ D:/Qt/5.15.2/msvc2019_64/bin/windeployqt.exe --release build-qt515/app/Release/q
 ```
 
 如果 CMake 找不到 Qt，检查 `CMAKE_PREFIX_PATH`；如果运行时提示缺少 Qt DLL，执行对应版本的 `windeployqt`。更多平台说明和构建细节见 [仓库 README](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets#readme)。
+
+启用图表时，还需要部署 QtWebEngineProcess、WebEngine resources、locales 以及 Qt Quick/QML 依赖。使用仓库的 `scripts/check_release.ps1` 完成回归与部署，固定成品目录为 `build/package/Release/Qt-Fluent-Widgets`（Qt 6）或 `build-qt515/package/Release/Qt-Fluent-Widgets`（Qt 5）。发布时保留仓库许可证和第三方说明。
 
 </template>
 </InstallTabs>

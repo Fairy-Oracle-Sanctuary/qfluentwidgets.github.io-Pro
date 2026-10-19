@@ -192,6 +192,9 @@ codeEdit.setIndentSize(4)
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -201,6 +204,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [LineEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
+
+![LineEdit](/img/components/lineedit/LineEdit.png)
 
 ```cpp
 #include <components/widgets/line_edit.h>
@@ -214,6 +219,8 @@ edit->setFixedWidth(260);
 
 ### C++ [SearchLineEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
 
+![SearchLineEdit](/img/components/lineedit/SearchLineEdit.png)
+
 ```cpp
 #include <components/widgets/line_edit.h>
 
@@ -223,6 +230,8 @@ QObject::connect(edit, &qfw::SearchLineEdit::searchSignal, parent, [](const QStr
 ```
 
 ### C++ [PasswordLineEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
+
+![PasswordLineEdit](/img/components/lineedit/PasswordLineEdit.png)
 
 ```cpp
 #include <components/widgets/line_edit.h>
@@ -234,6 +243,8 @@ edit->setPasswordVisible(false);
 
 ### C++ [PlainTextEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
 
+![PlainTextEdit](/img/components/lineedit/PlainTextEdit.png)
+
 ```cpp
 #include <components/widgets/line_edit.h>
 
@@ -244,6 +255,8 @@ qDebug() << edit->toPlainText();
 
 ### C++ [TextBrowser](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
 
+![TextBrowser](/img/components/lineedit/TextEdit.png)
+
 ```cpp
 #include <components/widgets/line_edit.h>
 
@@ -252,15 +265,55 @@ browser->setHtml(QStringLiteral("<b>Hello</b>"));
 browser->setOpenExternalLinks(true);
 ```
 
+### C++ [PinBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_line_edit.h)
+
+![PinBox](/img/components/lineedit/PinBox.png)
+
+```cpp
+#include <components/widgets/extended_line_edit.h>
+auto* widget = new qfw::PinBox(parent);
+widget->setPinBoxCount(6);
+widget->setEchoMode(QLineEdit::Password);
+```
+
+### C++ [LabelLineEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_line_edit.h)
+
+![LabelLineEdit](/img/components/lineedit/LabelLineEdit.png)
+
+```cpp
+#include <components/widgets/extended_line_edit.h>
+auto* widget = new qfw::LabelLineEdit(QStringLiteral("$"), QStringLiteral("USD"), parent);
+widget->setPlaceholderText(QStringLiteral("Amount"));
+```
+
+### C++ [TextEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
+
+![TextEdit](/img/components/lineedit/TextEdit.png)
+
+```cpp
+#include <components/widgets/line_edit.h>
+auto* widget = new qfw::TextEdit(parent);
+widget->setPlainText(QStringLiteral("Editable text"));
+```
+
+### C++ [CodeEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/code_edit.h)
+
+![CodeEdit](/img/components/lineedit/CodeEdit.png)
+
+```cpp
+#include <components/widgets/code_edit.h>
+auto* widget = new qfw::CodeEdit(parent);
+widget->setLanguage(qfw::CodeLanguage::CPP);
+widget->setIndentSize(4);
+widget->setLineNumbersVisible(true);
+widget->setPlainText(QStringLiteral("int main() { return 0; }"));
+```
+
 ## C++ Not yet implemented
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+The current C++ source does not provide these types. Upstream descriptions are retained without non-compiling examples.
 
-- `PinBox`
 - `TokenLineEdit`
-- `LabelLineEdit`
-- `TextEdit`
-- `CodeEdit`
 
 </template>
 </LanguageTabs>

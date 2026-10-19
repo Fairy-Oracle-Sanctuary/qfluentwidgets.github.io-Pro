@@ -171,6 +171,9 @@ self.guideWindow.show()
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -180,6 +183,8 @@ self.guideWindow.show()
 ```
 
 ### C++ [Pivot](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/pivot.h)
+
+![Pivot](/img/components/topnavigationbar/Pivot.png)
 
 ```cpp
 #include <components/navigation/pivot.h>
@@ -193,6 +198,8 @@ QObject::connect(pivot, &qfw::Pivot::currentItemChanged, parent, [](const QStrin
 
 ### C++ [SegmentedWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/segmented_widget.h)
 
+![SegmentedWidget](/img/components/topnavigationbar/SegmentedWidget.png)
+
 ```cpp
 #include <components/navigation/segmented_widget.h>
 
@@ -205,6 +212,8 @@ QObject::connect(pivot, &qfw::Pivot::currentItemChanged, parent, [](const QStrin
 
 ### C++ [SegmentedToolWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/segmented_widget.h)
 
+![SegmentedToolWidget](/img/components/topnavigationbar/SegmentedToolWidget.png)
+
 ```cpp
 #include <components/navigation/segmented_widget.h>
 
@@ -216,6 +225,8 @@ bar->setCurrentItem(QStringLiteral("add"));
 
 ### C++ [SegmentedToggleToolWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/segmented_widget.h)
 
+![SegmentedToggleToolWidget](/img/components/topnavigationbar/SegmentedToggleToolWidget.png)
+
 ```cpp
 #include <components/navigation/segmented_widget.h>
 
@@ -226,6 +237,8 @@ bar->setCurrentItem(QStringLiteral("add"));
 ```
 
 ### C++ [TopNavigationBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/top_navigation_interface.h)
+
+![TopNavigationBar](/img/components/topnavigationbar/TopNavigationBar.png)
 
 本例使用 C++ 中的 `TopNavigationInterface`，与 Python 的类名或使用方式不同。
 
@@ -239,11 +252,21 @@ navigation->addItem(QStringLiteral("home"), qfw::FluentIcon(qfw::FluentIconEnum:
 navigation->setCurrentItem(QStringLiteral("home"));
 ```
 
+### C++ [MenuBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/menu_bar.h)
+
+![MenuBar](/img/components/topnavigationbar/MenuBar.png)
+
+```cpp
+#include <components/widgets/menu_bar.h>
+auto* widget = new qfw::MenuBar(parent);
+auto* file = widget->addMenu(QStringLiteral("File"));
+file->addAction(new QAction(QStringLiteral("Open"), file));
+```
+
 ## C++ 暂未实现的组件
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+当前 C++ 源码尚未提供以下类型的对应实现；保留上游介绍，不提供不可编译的示例。
 
-- `MenuBar`
 - `GuideWindow`
 
 </template>

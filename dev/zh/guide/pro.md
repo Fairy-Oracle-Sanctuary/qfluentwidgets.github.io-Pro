@@ -1,16 +1,16 @@
 ---
-title: 高级版
+title: 扩展组件
 date: 2023-08-17 15:37:01
 permalink: /zh/pages/pro/
 ---
 
-## 组件库的授权方式？
-Python 组件库采用对偶许可证，非商业用途使用 GPLv3 许可证进行授权，商用需购买 [商业许可证](/zh/price) 才能获得商用授权。
+## 社区扩展组件
 
-## 有哪些高级组件？
-为了满足开发者的需求，高级版的组件库包含更多高级组件，可以让现代化界面开发变得更加得心应手。目前，高级版组件库包含下述组件，之后还会不断增加新组件。
+本网站同时记录 Python 参考实现与 C++ 迁移版本。使用和分发时，请查看所使用仓库内的 LICENSE 与第三方说明；本页不代表上游商业授权。
 
-可从 [发行页面](https://github.com/zhiyiYo/PyQt-Fluent-Widgets/releases) 或顶部导航栏下载体验包 `PyQt-Fluent-Widgets-Pro-Gallery.zip`。
+C++ 已迁移聊天、代码编辑器、图表、亚克力材质及多个高级输入和布局组件。安装方式见[安装指南](/zh/pages/install/)，实际接口与剩余缺口见各组件页面的 C++ 标签。
+
+下表保留上游高级组件名称作为对照，不表示每个类型都已在本地 Python 或 C++ 仓库实现。FilledFluentWindow 已补齐，视频播放、GuideWindow 等仍有缺口。
 
 ### 基本输入
 

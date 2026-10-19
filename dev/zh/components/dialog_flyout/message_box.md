@@ -135,6 +135,8 @@ class CustomMessageBox(MessageBoxBase):
 
 ### [WaitingDialog](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/dialog_box/waiting_dialog.py)
 
+![WaitingDialog](/img/components/python/WaitingDialog.png)
+
 显示等待状态的非阻塞对话框，由调用方在任务结束后关闭。
 
 ```python
@@ -148,6 +150,8 @@ self.waitingDialog.open()
 ```
 
 ### [Drawer](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/drawer.py)
+
+![Drawer](/img/components/python/Drawer.png)
 
 带阴影的抽屉，可从父组件的左、右、上、下四个方向弹出。
 
@@ -168,6 +172,9 @@ self.drawer.open(DrawerPosition.RIGHT)
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -177,6 +184,8 @@ self.drawer.open(DrawerPosition.RIGHT)
 ```
 
 ### C++ [Dialog](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/dialog_box/dialog.h)
+
+![Dialog](/img/components/messagebox/Dialog.png)
 
 ```cpp
 #include <components/dialog_box/dialog.h>
@@ -189,6 +198,8 @@ if (dialog.exec() == QDialog::Accepted) {
 
 ### C++ [MessageBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/dialog_box/dialog.h)
 
+![MessageBox](/img/components/messagebox/MessageBox.png)
+
 ```cpp
 #include <components/dialog_box/dialog.h>
 
@@ -200,6 +211,8 @@ if (dialog.exec() == QDialog::Accepted) {
 
 ### C++ [MessageBoxBase](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/dialog_box/message_box_base.h)
 
+![MessageBoxBase](/img/components/messagebox/CustomMessageBox.png)
+
 ```cpp
 #include <components/dialog_box/message_box_base.h>
 
@@ -210,12 +223,30 @@ dialog->exec();
 dialog->deleteLater();
 ```
 
-## C++ 暂未实现的组件
+### C++ [WaitingDialog](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/dialog_box/waiting_dialog.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![WaitingDialog](/img/components/python/WaitingDialog.png)
 
-- `WaitingDialog`
-- `Drawer`
+```cpp
+#include <components/dialog_box/waiting_dialog.h>
+auto* widget = new qfw::WaitingDialog(parent);
+widget->setTitle(QStringLiteral("Loading"));
+widget->setContent(QStringLiteral("Preparing data…"));
+widget->show();
+```
+
+### C++ [Drawer](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/drawer.h)
+
+![Drawer](/img/components/python/Drawer.png)
+
+```cpp
+#include <components/widgets/drawer.h>
+auto* widget = new qfw::Drawer(parent);
+widget->setTitle(QStringLiteral("Details"));
+widget->setDrawerSize(320);
+widget->addWidget(new qfw::BodyLabel(QStringLiteral("Panel content"), widget));
+widget->open();
+```
 
 </template>
 </LanguageTabs>

@@ -4,6 +4,14 @@ date: 2023-08-17 15:02:30
 permalink: /pages/changelog/
 ---
 
+### 2026-10-11: C++ documentation synchronization
+
+- Updated 68 bilingual component pages with 92 C++ examples compiled against Qt 5.15.2 and Qt 6.7.3.
+- Documented native chat, code editing, charts, acrylic materials, installation, deployment, and Win11 backdrop recovery.
+- Retained missing-component markers based on actual source availability.
+
+The following entries are upstream version history, not a new community release.
+
 ### v1.11.0
 #### New Components
 * Added `FluentTitleBarButton`

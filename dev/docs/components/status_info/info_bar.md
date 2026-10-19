@@ -201,6 +201,8 @@ self.progressToast.valueChanged.connect(lambda value: print(value))
 
 ### [RoundProgressToast](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/round_progress_toast.py)
 
+![RoundProgressToast](/img/components/python/RoundProgressToast.png)
+
 A toast with an indeterminate circular loading animation.
 
 ```python
@@ -215,6 +217,9 @@ self.progressToast = RoundProgressToast.new('Loading...', parent=self)
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -225,20 +230,60 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 
 ### C++ [InfoBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/info_bar.h)
 
+![InfoBar](/img/components/infobar/InfoBar.png)
+
 ```cpp
 #include <components/widgets/info_bar.h>
 
 qfw::InfoBar::success(QStringLiteral("Saved"), QStringLiteral("Your changes have been saved."), Qt::Horizontal, true, 3000, qfw::InfoBarPosition::TopRight, parent);
 ```
 
-## C++ Not yet implemented
+### C++ [Toast](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/toast.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![Toast](/img/components/infobar/Toast.png)
 
-- `Toast`
-- `ProgressInfoBar`
-- `ProgressToast`
-- `RoundProgressToast`
+```cpp
+#include <components/widgets/toast.h>
+qfw::Toast::success(QStringLiteral("Saved"), QStringLiteral("Changes saved"),
+    2500, true, qfw::ToastPosition::TopRight, Qt::Vertical, parent);
+```
+
+### C++ [ProgressInfoBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/progress_info_bar.h)
+
+![ProgressInfoBar](/img/components/infobar/ProgressInfoBar.png)
+
+```cpp
+#include <components/widgets/progress_info_bar.h>
+auto* bar = new qfw::ProgressInfoBar(QStringLiteral("Download"), QStringLiteral("Receiving data"),
+    Qt::Horizontal, true, -1, qfw::InfoBarPosition::TopRight, parent);
+bar->setIndeterminate(false);
+bar->setValue(40);
+bar->show();
+```
+
+### C++ [ProgressToast](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/progress_toast.h)
+
+![ProgressToast](/img/components/infobar/ProgressToast.png)
+
+Progress does not automatically close the notification. Update its state and close it when the task finishes or fails.
+
+```cpp
+#include <components/widgets/progress_toast.h>
+auto* toast = qfw::ProgressToast::info(QStringLiteral("Downloading"), 0, -1,
+    true, qfw::ToastPosition::TopRight, parent);
+toast->setValue(40);
+```
+
+### C++ [RoundProgressToast](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_progress_toast.h)
+
+![RoundProgressToast](/img/components/python/RoundProgressToast.png)
+
+```cpp
+#include <components/widgets/round_progress_toast.h>
+auto* toast = qfw::RoundProgressToast::newToast(QStringLiteral("Loading"), -1,
+    qfw::ToastPosition::TopRight, parent);
+// Complete the task before calling toast->close().
+```
 
 </template>
 </LanguageTabs>

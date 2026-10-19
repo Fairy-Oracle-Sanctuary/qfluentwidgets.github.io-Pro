@@ -49,6 +49,8 @@ print(label.url)
 
 ### [Watermark](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/watermark.py)
 
+![Watermark](/img/components/python/Watermark.png)
+
 A text watermark overlay with configurable angle, opacity and spacing, without intercepting mouse events.
 
 The watermark follows its target size and lets mouse events pass through. Pass the content widget as parent to cover only that area.
@@ -66,6 +68,9 @@ self.watermark.show()
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -75,6 +80,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [FluentLabelBase](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/label.h)
+
+![FluentLabelBase](/img/components/label/FluentLabel.png)
 
 This example uses the C++ `BodyLabel` class, whose name or usage differs from Python.
 
@@ -87,17 +94,24 @@ label->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
 ### C++ [HyperlinkLabel](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/label.h)
 
+![HyperlinkLabel](/img/components/label/HyperlinkLabel.png)
+
 ```cpp
 #include <components/widgets/label.h>
 
 auto* label = new qfw::HyperlinkLabel(QStringLiteral("https://fairy.ora-san.org/"), QStringLiteral("Visit website"), parent);
 ```
 
-## C++ Not yet implemented
+### C++ [Watermark](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/watermark.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![Watermark](/img/components/python/Watermark.png)
 
-- `Watermark`
+```cpp
+#include <components/widgets/watermark.h>
+auto* watermark = new qfw::Watermark(QStringLiteral("Internal preview"), parent);
+watermark->setOpacity(0.12);
+watermark->setAngle(-30);
+```
 
 </template>
 </LanguageTabs>

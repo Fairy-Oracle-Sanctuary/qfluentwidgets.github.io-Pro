@@ -124,6 +124,9 @@ print(dt.dateTime())
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -133,6 +136,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [SpinBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/spin_box.h)
+
+![SpinBox](/img/components/spinbox/SpinBox.png)
 
 ```cpp
 #include <components/widgets/spin_box.h>
@@ -145,6 +150,8 @@ QObject::connect(spin, QOverload<int>::of(&QSpinBox::valueChanged), parent, [](i
 
 ### C++ [DoubleSpinBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/spin_box.h)
 
+![DoubleSpinBox](/img/components/spinbox/DoubleSpinBox.png)
+
 ```cpp
 #include <components/widgets/spin_box.h>
 
@@ -154,13 +161,38 @@ spin->setDecimals(2);
 spin->setValue(12.5);
 ```
 
-## C++ Not yet implemented
+### C++ [TimeEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/date_time_edit.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![TimeEdit](/img/components/spinbox/TimeEdit.png)
 
-- `TimeEdit`
-- `DateEdit`
-- `DateTimeEdit`
+```cpp
+#include <components/widgets/date_time_edit.h>
+auto* widget = new qfw::TimeEdit(parent);
+widget->setDisplayFormat(QStringLiteral("HH:mm:ss"));
+widget->setTime(QTime::currentTime());
+```
+
+### C++ [DateEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/date_time_edit.h)
+
+![DateEdit](/img/components/spinbox/DateEdit.png)
+
+```cpp
+#include <components/widgets/date_time_edit.h>
+auto* widget = new qfw::DateEdit(parent);
+widget->setDisplayFormat(QStringLiteral("yyyy-MM-dd"));
+widget->setDate(QDate::currentDate());
+```
+
+### C++ [DateTimeEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/date_time_edit.h)
+
+![DateTimeEdit](/img/components/spinbox/DateTimeEdit.png)
+
+```cpp
+#include <components/widgets/date_time_edit.h>
+auto* widget = new qfw::DateTimeEdit(parent);
+widget->setDisplayFormat(QStringLiteral("yyyy-MM-dd HH:mm"));
+widget->setDateTime(QDateTime::currentDateTime());
+```
 
 </template>
 </LanguageTabs>

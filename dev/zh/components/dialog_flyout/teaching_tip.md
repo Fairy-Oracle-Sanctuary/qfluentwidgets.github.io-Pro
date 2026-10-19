@@ -131,10 +131,15 @@ class Demo(QWidget):
 
 ### [PopupTeachingTip](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/widgets/teaching_tip/index.html#qfluentwidgets.components.widgets.teaching_tip.PopupTeachingTip)
 
+![PopupTeachingTip](/img/components/python/PopupTeachingTip.png)
+
 `PopupTeachingTip` 是模态的，点击空白处可直接关闭，使用方法和 [TeachingTip](#teachingtip) 完全相同。
 
 </template>
 <template #cpp>
+
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
 
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
@@ -145,6 +150,8 @@ class Demo(QWidget):
 ```
 
 ### C++ [TeachingTip](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/teaching_tip.h)
+
+![TeachingTip](/img/components/teachingtip/TeachingTip.png)
 
 ```cpp
 #include <components/widgets/teaching_tip.h>
@@ -157,6 +164,8 @@ QObject::connect(target, &QPushButton::clicked, parent, [target, parent] {
 ```
 
 ### C++ [PopupTeachingTip](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/teaching_tip.h)
+
+![PopupTeachingTip](/img/components/python/PopupTeachingTip.png)
 
 ```cpp
 #include <components/widgets/teaching_tip.h>

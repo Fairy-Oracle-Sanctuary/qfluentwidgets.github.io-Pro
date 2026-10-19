@@ -131,10 +131,15 @@ class Demo(QWidget):
 
 ### [PopupTeachingTip](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/widgets/teaching_tip/index.html#qfluentwidgets.components.widgets.teaching_tip.PopupTeachingTip)
 
+![PopupTeachingTip](/img/components/python/PopupTeachingTip.png)
+
 `PopupTeachingTip` is modal, and can be closed directly by clicking on the blank area. The usage is exactly the same as [TeachingTip](#teachingtip).
 
 </template>
 <template #cpp>
+
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
 
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
@@ -145,6 +150,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [TeachingTip](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/teaching_tip.h)
+
+![TeachingTip](/img/components/teachingtip/TeachingTip.png)
 
 ```cpp
 #include <components/widgets/teaching_tip.h>
@@ -157,6 +164,8 @@ QObject::connect(target, &QPushButton::clicked, parent, [target, parent] {
 ```
 
 ### C++ [PopupTeachingTip](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/teaching_tip.h)
+
+![PopupTeachingTip](/img/components/python/PopupTeachingTip.png)
 
 ```cpp
 #include <components/widgets/teaching_tip.h>

@@ -590,6 +590,9 @@ tag.setType('success')
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -599,6 +602,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [PushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![PushButton](/img/components/button/PushButton.jpg)
 
 ```cpp
 #include <components/widgets/button.h>
@@ -610,6 +615,8 @@ QObject::connect(button, &QPushButton::clicked, parent, [] { qDebug() << "Clicke
 
 ### C++ [ToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![ToolButton](/img/components/button/ToolButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -619,6 +626,8 @@ button->setToolTip(QStringLiteral("Add"));
 ```
 
 ### C++ [PrimaryPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![PrimaryPushButton](/img/components/button/PrimaryPushButton.jpg)
 
 ```cpp
 #include <components/widgets/button.h>
@@ -630,6 +639,8 @@ QObject::connect(button, &QPushButton::clicked, parent, [] { qDebug() << "Clicke
 
 ### C++ [PrimaryToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![PrimaryToolButton](/img/components/button/PrimaryToolButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -639,6 +650,8 @@ button->setToolTip(QStringLiteral("Add"));
 ```
 
 ### C++ [TransparentPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![TransparentPushButton](/img/components/button/TransparentPushButton.jpg)
 
 ```cpp
 #include <components/widgets/button.h>
@@ -650,6 +663,8 @@ QObject::connect(button, &QPushButton::clicked, parent, [] { qDebug() << "Clicke
 
 ### C++ [TransparentToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![TransparentToolButton](/img/components/button/TransparentToolButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -660,6 +675,8 @@ button->setToolTip(QStringLiteral("Add"));
 
 ### C++ [HyperlinkButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![HyperlinkButton](/img/components/button/HyperlinkButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -668,6 +685,8 @@ button->setFixedWidth(180);
 ```
 
 ### C++ [TogglePushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![TogglePushButton](/img/components/button/TogglePushButton.jpg)
 
 This example uses the C++ `ToggleButton` class, whose name or usage differs from Python.
 
@@ -681,6 +700,8 @@ QObject::connect(button, &QPushButton::toggled, parent, [](bool checked) { qDebu
 
 ### C++ [ToggleToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![ToggleToolButton](/img/components/button/ToggleToolButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -690,6 +711,8 @@ button->setToolTip(QStringLiteral("Add"));
 ```
 
 ### C++ [TransparentTogglePushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![TransparentTogglePushButton](/img/components/button/TransparentTogglePushButton.jpg)
 
 ```cpp
 #include <components/widgets/button.h>
@@ -701,6 +724,8 @@ QObject::connect(button, &QPushButton::clicked, parent, [] { qDebug() << "Clicke
 
 ### C++ [TransparentToggleToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![TransparentToggleToolButton](/img/components/button/TransparentToggleToolButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -710,6 +735,8 @@ button->setToolTip(QStringLiteral("Add"));
 ```
 
 ### C++ [PillPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![PillPushButton](/img/components/button/PillPushButton.jpg)
 
 ```cpp
 #include <components/widgets/button.h>
@@ -721,6 +748,8 @@ QObject::connect(button, &QPushButton::clicked, parent, [] { qDebug() << "Clicke
 
 ### C++ [PillToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![PillToolButton](/img/components/button/PillToolButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -730,6 +759,8 @@ button->setToolTip(QStringLiteral("Add"));
 ```
 
 ### C++ [DropDownPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![DropDownPushButton](/img/components/button/DropdownPushButton.jpg)
 
 ```cpp
 #include <components/widgets/button.h>
@@ -743,6 +774,8 @@ button->setMenu(menu);
 
 ### C++ [DropDownToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![DropDownToolButton](/img/components/button/DropdownToolButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -754,6 +787,8 @@ button->setMenu(menu);
 ```
 
 ### C++ [PrimaryDropDownPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![PrimaryDropDownPushButton](/img/components/button/PrimaryDropDownPushButton.jpg)
 
 ```cpp
 #include <components/widgets/button.h>
@@ -767,6 +802,8 @@ button->setMenu(menu);
 
 ### C++ [TransparentDropDownPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![TransparentDropDownPushButton](/img/components/button/TransparentDropDownPushButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -778,6 +815,8 @@ button->setMenu(menu);
 ```
 
 ### C++ [TransparentDropDownToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![TransparentDropDownToolButton](/img/components/button/TransparentDropDownToolButton.jpg)
 
 ```cpp
 #include <components/widgets/button.h>
@@ -791,6 +830,8 @@ button->setMenu(menu);
 
 ### C++ [SplitPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![SplitPushButton](/img/components/button/SplitPushButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -802,6 +843,8 @@ button->setFlyout(menu);
 ```
 
 ### C++ [SplitToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![SplitToolButton](/img/components/button/SplitToolButton.jpg)
 
 ```cpp
 #include <components/widgets/button.h>
@@ -815,6 +858,8 @@ button->setFlyout(menu);
 
 ### C++ [PrimarySplitPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![PrimarySplitPushButton](/img/components/button/PrimarySplitPushButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -827,6 +872,8 @@ button->setFlyout(menu);
 
 ### C++ [PrimarySplitToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
 
+![PrimarySplitToolButton](/img/components/button/PrimarySplitToolButton.jpg)
+
 ```cpp
 #include <components/widgets/button.h>
 
@@ -837,23 +884,146 @@ auto* button = new qfw::PrimarySplitToolButton(qfw::FluentIcon(qfw::FluentIconEn
 button->setFlyout(menu);
 ```
 
-## C++ Not yet implemented
+### C++ [HyperlinkToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![HyperlinkToolButton](/img/components/button/HyperlinkToolButton.png)
 
-- `HyperlinkToolButton`
-- `FilledPushButton`
-- `FilledToolButton`
-- `TextPushButton`
-- `TextToolButton`
-- `LuminaPushButton`
-- `OutlinedPushButton`
-- `OutlinedToolButton`
-- `RoundPushButton`
-- `RoundToolButton`
-- `PrimaryDropDownToolButton`
-- `Chip`
-- `Tag`
+```cpp
+#include <components/widgets/extended_button.h>
+auto* button = new qfw::HyperlinkToolButton(parent);
+button->setIcon(qfw::FluentIcon(qfw::FluentIconEnum::Link).qicon());
+button->setUrl(QUrl("https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets"));
+```
+
+### C++ [FilledPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
+
+![FilledPushButton](/img/components/button/FilledPushButton.png)
+
+```cpp
+#include <components/widgets/extended_button.h>
+auto* widget = new qfw::FilledPushButton(QStringLiteral("Save"), parent);
+widget->setColorScheme(QStringLiteral("success"));
+```
+
+### C++ [FilledToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
+
+![FilledToolButton](/img/components/button/FilledToolButton.png)
+
+```cpp
+#include <components/widgets/extended_button.h>
+auto* widget = new qfw::FilledToolButton(parent);
+widget->setIcon(qfw::FluentIcon(qfw::FluentIconEnum::Add).qicon());
+widget->setColorScheme(QStringLiteral("success"));
+```
+
+### C++ [TextPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
+
+![TextPushButton](/img/components/button/TextPushButton.png)
+
+```cpp
+#include <components/widgets/extended_button.h>
+auto* widget = new qfw::TextPushButton(QStringLiteral("Save"), parent);
+widget->setColorScheme(QStringLiteral("success"));
+```
+
+### C++ [TextToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
+
+![TextToolButton](/img/components/button/TextToolButton.png)
+
+```cpp
+#include <components/widgets/extended_button.h>
+auto* widget = new qfw::TextToolButton(parent);
+widget->setIcon(qfw::FluentIcon(qfw::FluentIconEnum::Add).qicon());
+widget->setColorScheme(QStringLiteral("success"));
+```
+
+### C++ [LuminaPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
+
+![LuminaPushButton](/img/components/button/LuminaPushButton.png)
+
+```cpp
+#include <components/widgets/extended_button.h>
+auto* button = new qfw::LuminaPushButton(QStringLiteral("Continue"), parent);
+button->setGlowColor(QColor("#009faa"));
+```
+
+### C++ [OutlinedPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
+
+![OutlinedPushButton](/img/components/button/OutlinedPushButton.png)
+
+```cpp
+#include <components/widgets/extended_button.h>
+auto* widget = new qfw::OutlinedPushButton(QStringLiteral("Save"), parent);
+widget->setColorScheme(QStringLiteral("success"));
+```
+
+### C++ [OutlinedToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
+
+![OutlinedToolButton](/img/components/button/OutlinedToolButton.png)
+
+```cpp
+#include <components/widgets/extended_button.h>
+auto* widget = new qfw::OutlinedToolButton(parent);
+widget->setIcon(qfw::FluentIcon(qfw::FluentIconEnum::Add).qicon());
+widget->setColorScheme(QStringLiteral("success"));
+```
+
+### C++ [RoundPushButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
+
+![RoundPushButton](/img/components/button/RoundPushButton.png)
+
+```cpp
+#include <components/widgets/extended_button.h>
+auto* widget = new qfw::RoundPushButton(QStringLiteral("Save"), parent);
+widget->setColorScheme(QStringLiteral("success"));
+```
+
+### C++ [RoundToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_button.h)
+
+![RoundToolButton](/img/components/button/RoundToolButton.png)
+
+```cpp
+#include <components/widgets/extended_button.h>
+auto* widget = new qfw::RoundToolButton(parent);
+widget->setIcon(qfw::FluentIcon(qfw::FluentIconEnum::Add).qicon());
+widget->setColorScheme(QStringLiteral("success"));
+```
+
+### C++ [PrimaryDropDownToolButton](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/button.h)
+
+![PrimaryDropDownToolButton](/img/components/button/PrimaryDropDownToolButton.jpg)
+
+```cpp
+#include <components/widgets/button.h>
+auto* button = new qfw::PrimaryDropDownToolButton(parent);
+button->setIcon(qfw::FluentIcon(qfw::FluentIconEnum::Add).qicon());
+auto* menu = new qfw::RoundMenu(QString(), button);
+menu->addAction(new QAction(QStringLiteral("Create"), menu));
+button->setMenu(menu);
+```
+
+### C++ [Chip](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/chip.h)
+
+![Chip](/img/components/button/Chip.png)
+
+The close signal does not delete the chip; this example schedules deletion explicitly.
+
+```cpp
+#include <components/widgets/chip.h>
+auto* chip = new qfw::Chip(QStringLiteral("Qt"), parent);
+chip->setChecked(true);
+QObject::connect(chip, &qfw::Chip::closed, chip, &QObject::deleteLater);
+```
+
+### C++ [Tag](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tag.h)
+
+![Tag](/img/components/button/Tag.png)
+
+```cpp
+#include <components/widgets/tag.h>
+auto* widget = new qfw::Tag(QStringLiteral("Ready"), parent);
+widget->setType(QStringLiteral("success"));
+```
 
 </template>
 </LanguageTabs>

@@ -45,6 +45,8 @@ progressBar.setCustomBarColor(QColor(255, 0, 0), QColor(0, 255, 110))
 
 ### [IndeterminateProgressBar](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/progress_bar/index.html#qfluentwidgets.components.widgets.progress_bar.IndeterminateProgressBar)
 
+![IndeterminateProgressBar](/img/components/python/IndeterminateProgressBar.png)
+
 `IndeterminateProgressBar` represents a long-running task that is in progress but its completion time is unknown. This type of progress bar is very useful when there is no clear completion time or progress information, such as when loading or processing a large amount of data.
 
 ```python
@@ -115,6 +117,9 @@ group.addItem('Publish a release', InfoBarIcon.INFORMATION)
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -124,6 +129,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [ProgressBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/progress_bar.h)
+
+![ProgressBar](/img/components/progressbar/ProgressBar.png)
 
 ```cpp
 #include <components/widgets/progress_bar.h>
@@ -136,6 +143,8 @@ progress->setFixedWidth(260);
 
 ### C++ [IndeterminateProgressBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/progress_bar.h)
 
+![IndeterminateProgressBar](/img/components/python/IndeterminateProgressBar.png)
+
 ```cpp
 #include <components/widgets/progress_bar.h>
 
@@ -144,13 +153,40 @@ progress->start();
 // Call progress->stop() when the operation completes.
 ```
 
-## C++ Not yet implemented
+### C++ [FilledProgressBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_progress.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![FilledProgressBar](/img/components/progressbar/FilledProgressBar.png)
 
-- `FilledProgressBar`
-- `StepProgressBar`
-- `TimeLineWidget`
+```cpp
+#include <components/widgets/extended_progress.h>
+auto* widget = new qfw::FilledProgressBar(parent);
+widget->setRange(0, 100);
+widget->setValue(65);
+```
+
+### C++ [StepProgressBar](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_progress.h)
+
+![StepProgressBar](/img/components/progressbar/StepProgressBar.png)
+
+```cpp
+#include <components/widgets/extended_progress.h>
+auto* widget = new qfw::StepProgressBar(parent);
+widget->setCount(3);
+widget->setStepNames({QStringLiteral("Select"), QStringLiteral("Configure"), QStringLiteral("Finish")});
+widget->setCurrent(1);
+```
+
+### C++ [TimeLineWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/time_line.h)
+
+![TimeLineWidget](/img/components/progressbar/TimeLineWidget.png)
+
+```cpp
+#include <components/widgets/time_line.h>
+auto* widget = new qfw::TimeLineWidget(parent);
+auto* group = widget->addGroup(QStringLiteral("Today"));
+group->addItem(QStringLiteral("Started"));
+group->addItem(QStringLiteral("Completed"), qfw::InfoBarIconEnum::Success);
+```
 
 </template>
 </LanguageTabs>

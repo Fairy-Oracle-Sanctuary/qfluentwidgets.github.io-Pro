@@ -41,6 +41,8 @@ ring.setFormat("%v℃")
 
 ### [IndeterminateProgressRing](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/widgets/progress_ring/index.html#qfluentwidgets.components.widgets.progress_ring.IndeterminateProgressRing)
 
+![IndeterminateProgressRing](/img/components/python/IndeterminateProgressRing.png)
+
 `IndeterminateProgressRing` 用于表示应用程序正在进行某项操作，但该操作的完成时间未知。
 
 ```python
@@ -91,6 +93,9 @@ gauge.setValue(65)
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -100,6 +105,8 @@ gauge.setValue(65)
 ```
 
 ### C++ [ProgressRing](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/progress_ring.h)
+
+![ProgressRing](/img/components/progressring/ProgressRing.png)
 
 ```cpp
 #include <components/widgets/progress_ring.h>
@@ -112,6 +119,8 @@ progress->setFixedSize(64, 64);
 
 ### C++ [IndeterminateProgressRing](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/progress_ring.h)
 
+![IndeterminateProgressRing](/img/components/python/IndeterminateProgressRing.png)
+
 ```cpp
 #include <components/widgets/progress_ring.h>
 
@@ -120,12 +129,27 @@ progress->start();
 // Call progress->stop() when the operation completes.
 ```
 
-## C++ 暂未实现的组件
+### C++ [MultiSegmentProgressRing](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_progress.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![MultiSegmentProgressRing](/img/components/progressring/MultiSegmentProgressRing.png)
 
-- `MultiSegmentProgressRing`
-- `RadialGauge`
+```cpp
+#include <components/widgets/extended_progress.h>
+auto* widget = new qfw::MultiSegmentProgressRing(parent);
+widget->setSegments({{25, QColor("#009faa")}, {35, QColor("#f88a00")}});
+widget->setText(QStringLiteral("60%"));
+```
+
+### C++ [RadialGauge](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_progress.h)
+
+![RadialGauge](/img/components/progressring/RadialGauge.png)
+
+```cpp
+#include <components/widgets/extended_progress.h>
+auto* widget = new qfw::RadialGauge(parent);
+widget->setRange(0, 100);
+widget->setValue(65);
+```
 
 </template>
 </LanguageTabs>

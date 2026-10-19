@@ -45,6 +45,8 @@ dropWidget.draggedChange.connect(lambda paths: print(paths))
 
 ### [DropAnyWidget](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/drop_widget.py)
 
+![DropAnyWidget](/img/components/python/DropAnyWidget.png)
+
 接受文件和文件夹的拖放区域，也可以通过点击选择内容。
 
 ```python
@@ -59,6 +61,9 @@ dropWidget.draggedChange.connect(lambda paths: print(paths))
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -67,13 +72,41 @@ dropWidget.draggedChange.connect(lambda paths: print(paths))
 #include <memory>
 ```
 
-## C++ 暂未实现的组件
+### C++ [DropSingleFileWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/drop_widget.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![DropSingleFileWidget](/img/components/filepicker/DropSingleFileWidget.png)
 
-- `DropSingleFileWidget`
-- `DropMultiFilesWidget`
-- `DropAnyWidget`
+```cpp
+#include <QDir>
+#include <components/widgets/drop_widget.h>
+auto* widget = new qfw::DropSingleFileWidget(parent);
+widget->setDefaultDir(QDir::homePath());
+QObject::connect(widget, &qfw::DropMultiFilesWidget::selectionChange, widget, [](const QStringList& paths) { qDebug() << paths; });
+```
+
+### C++ [DropMultiFilesWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/drop_widget.h)
+
+![DropMultiFilesWidget](/img/components/filepicker/DropMultiFilesWidget.png)
+
+```cpp
+#include <QDir>
+#include <components/widgets/drop_widget.h>
+auto* widget = new qfw::DropMultiFilesWidget(parent);
+widget->setDefaultDir(QDir::homePath());
+QObject::connect(widget, &qfw::DropMultiFilesWidget::selectionChange, widget, [](const QStringList& paths) { qDebug() << paths; });
+```
+
+### C++ [DropAnyWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/drop_widget.h)
+
+![DropAnyWidget](/img/components/python/DropAnyWidget.png)
+
+```cpp
+#include <QDir>
+#include <components/widgets/drop_widget.h>
+auto* widget = new qfw::DropAnyWidget(parent);
+widget->setDefaultDir(QDir::homePath());
+QObject::connect(widget, &qfw::DropMultiFilesWidget::selectionChange, widget, [](const QStringList& paths) { qDebug() << paths; });
+```
 
 </template>
 </LanguageTabs>

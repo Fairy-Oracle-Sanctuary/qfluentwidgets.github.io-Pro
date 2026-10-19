@@ -11,6 +11,8 @@ Python 示例对应 `qfluentwidgets_pro`。代码片段需在创建 `QApplicatio
 
 ## [NavigationInterface](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/navigation/navigation_interface/index.html#qfluentwidgets.components.navigation.navigation_interface.NavigationInterface)
 
+![NavigationInterface](/img/components/python/NavigationInterface.png)
+
 ::: tip 提示
 只有需要高度定制侧边栏时才推荐直接使用这个类，否则请使用 [FluentWindow](/zh/pages/components/fluentwindow/)。
 :::
@@ -121,6 +123,9 @@ def addWidget(
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -130,6 +135,8 @@ def addWidget(
 ```
 
 ### C++ [NavigationInterface](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/navigation_interface.h)
+
+![NavigationInterface](/img/components/python/NavigationInterface.png)
 
 ```cpp
 #include <components/navigation/navigation_interface.h>

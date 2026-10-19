@@ -458,6 +458,8 @@ self.demoWindow.show()
 
 ## [FluentWidget](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/window/fluent_window/index.html#)
 
+![FluentWidget](/img/components/python/FluentWidget.png)
+
 `FluentWidget` 是一个能够自动跟随主题的无边框窗口组件，在 Win11 下默认开启了云母特效，并支持[自定义标题栏](#定制化标题栏)。
 
 ```python
@@ -504,6 +506,9 @@ if __name__ == '__main__':
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -513,6 +518,8 @@ if __name__ == '__main__':
 ```
 
 ### C++ [FluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
+
+![FluentWindow](/img/components/fluent_window/FluentWindow.png)
 
 ```cpp
 #include <window/fluent_window.h>
@@ -528,6 +535,8 @@ window->show();
 
 ### C++ [SplitFluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
 
+![SplitFluentWindow](/img/components/fluent_window/SplitFluentWindow.png)
+
 ```cpp
 #include <window/fluent_window.h>
 
@@ -541,6 +550,8 @@ window->show();
 ```
 
 ### C++ [MSFluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
+
+![MSFluentWindow](/img/components/fluent_window/MSFluentWindow.png)
 
 ```cpp
 #include <window/fluent_window.h>
@@ -556,6 +567,8 @@ window->show();
 
 ### C++ [TopFluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
 
+![TopFluentWindow](/img/components/topnavigationbar/TopNavigationBar.png)
+
 ```cpp
 #include <window/fluent_window.h>
 
@@ -570,6 +583,8 @@ window->show();
 
 ### C++ [FluentWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/fluent_window.h)
 
+![FluentWidget](/img/components/python/FluentWidget.png)
+
 ```cpp
 #include <window/fluent_window.h>
 
@@ -579,11 +594,54 @@ window->resize(600, 400);
 window->show();
 ```
 
-## C++ 暂未实现的组件
+### C++ Win11 背景恢复
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+在启用云母的窗口中，原生 WebEngine / OpenGL 子窗口可能使背景、圆角和阴影失效。WebEngine 使用 `FramelessWebEngineView`（链接 `qtfluentwidgets_chart`），并在主窗口显示后重新应用云母。以下示例需要安装指南中的图表依赖：
 
-- `FilledFluentWindow`
+```cpp
+#include <QApplication>
+#include <QVBoxLayout>
+#include <QUrl>
+#include <qtfluentwidgets.h>
+#include <components/widgets/frameless_web_engine_view.h>
+
+int main(int argc, char* argv[]) {
+    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+    QApplication app(argc, argv);
+    Q_INIT_RESOURCE(resource);
+    qfw::SplitFluentWindow window;
+    auto* page = new QWidget(&window);
+    page->setObjectName(QStringLiteral("webPage"));
+    auto* layout = new QVBoxLayout(page);
+    auto* browser = new qfw::FramelessWebEngineView(page);
+    layout->addWidget(browser);
+    browser->setHtml(QStringLiteral("<h1>Fluent WebEngine</h1>"));
+    window.addSubInterface(page, qfw::FluentIcon(qfw::FluentIconEnum::Home).qicon(), QStringLiteral("Web"));
+    window.resize(900, 700);
+    window.show();
+    window.setMicaEffectEnabled(true);
+    return app.exec();
+}
+```
+
+使用 `QOpenGLWidget` 时，创建子界面后调用 `window.updateFrameless()`，并在 `window.show()` 之后重新调用 `window.setMicaEffectEnabled(true)`。该处理针对 Windows 原生窗口；其它平台保留普通背景。
+
+### C++ [FilledFluentWindow](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/window/filled_fluent_window.h)
+
+![FilledFluentWindow](/img/components/fluent_window/FilledFluentWindow.png)
+
+默认展开的 216 px 侧栏，选中项以主题色填充整行。页面搜索支持多词匹配、上下方向键和 Enter 跳转；Esc 关闭结果弹层并保留输入。
+
+```cpp
+#include <window/filled_fluent_window.h>
+auto* widget = new qfw::FilledFluentWindow(parent);
+auto* page = new QWidget;
+page->setObjectName(QStringLiteral("home"));
+widget->addSubInterface(page, qfw::FluentIcon(qfw::FluentIconEnum::Home).qicon(), QStringLiteral("Home"));
+widget->resize(900, 640);
+widget->show();
+widget->setMicaEffectEnabled(true);
+```
 
 </template>
 </LanguageTabs>

@@ -56,6 +56,9 @@ pager.currentPageChanged.connect(lambda page: print(page))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -65,6 +68,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [PipsPager](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/pips_pager.h)
+
+![PipsPager](/img/components/pager/PipsPager.png)
 
 ```cpp
 #include <components/widgets/pips_pager.h>
@@ -76,11 +81,17 @@ pager->setCurrentIndex(0);
 QObject::connect(pager, &qfw::PipsPager::currentIndexChanged, parent, [](int index) { qDebug() << index; });
 ```
 
-## C++ Not yet implemented
+### C++ [Pager](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/pager.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![Pager](/img/components/pager/Pager.png)
 
-- `Pager`
+```cpp
+#include <components/widgets/pager.h>
+auto* widget = new qfw::Pager(parent);
+widget->setPages(20);
+widget->setCurrentPage(1);
+QObject::connect(widget, &qfw::Pager::currentPageChanged, widget, [](int page) { qDebug() << page; });
+```
 
 </template>
 </LanguageTabs>

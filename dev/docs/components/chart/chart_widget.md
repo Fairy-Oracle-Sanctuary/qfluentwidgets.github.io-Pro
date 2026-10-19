@@ -53,6 +53,9 @@ waveform.seekRequested.connect(lambda milliseconds: print(milliseconds))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -61,12 +64,39 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 #include <memory>
 ```
 
-## C++ Not yet implemented
+### C++ [ChartWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/chart_widget.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![ChartWidget](/img/components/chart/Bar.png)
 
-- `ChartWidget`
-- `AudioWaveformWidget`
+Link qtfluentwidgets_chart explicitly; Qt WebEngineWidgets and QuickWidgets are required. Set Qt::AA_ShareOpenGLContexts before QApplication. Use setOptionJS() for trusted ECharts configuration containing functions. ECharts 5.6.0 is bundled without a CDN dependency.
+
+```cpp
+#include <QJsonArray>
+#include <QJsonObject>
+#include <components/widgets/chart_widget.h>
+auto* chart = new qfw::ChartWidget(parent);
+chart->resize(640, 360);
+chart->setOption({
+    {"xAxis", QJsonObject{{"type", "category"}, {"data", QJsonArray{"Mon", "Tue", "Wed"}}}},
+    {"yAxis", QJsonObject{{"type", "value"}}},
+    {"series", QJsonArray{QJsonObject{{"type", "bar"}, {"data", QJsonArray{12, 20, 15}}}}}
+});
+```
+
+### C++ [AudioWaveformWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/audio_waveform.h)
+
+![AudioWaveformWidget](/img/components/chart/AudioWaveformWidget.png)
+
+This visualizes normalized mono PCM; it does not decode or play audio. Use queued signals for updates from producer threads.
+
+```cpp
+#include <components/widgets/audio_waveform.h>
+auto* waveform = new qfw::AudioWaveformWidget(parent);
+waveform->setSamples({0.0f, 0.3f, -0.5f, 0.8f, -0.2f}, 24000);
+waveform->appendSamples({0.4f, -0.3f});
+waveform->setSeekEnabled(true);
+QObject::connect(waveform, &qfw::AudioWaveformWidget::seekRequested, waveform, [](qint64 ms) { qDebug() << ms; });
+```
 
 </template>
 </LanguageTabs>

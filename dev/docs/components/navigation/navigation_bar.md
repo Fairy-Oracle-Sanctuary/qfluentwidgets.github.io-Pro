@@ -11,6 +11,8 @@ Python examples target `qfluentwidgets_pro`. Run the fragments after creating `Q
 
 ## [NavigationInterface](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/navigation/navigation_interface/index.html#qfluentwidgets.components.navigation.navigation_interface.NavigationInterface)
 
+![NavigationInterface](/img/components/python/NavigationInterface.png)
+
 ::: tip Tip
 This class is only recommended for direct use when you need to highly customize the sidebar, otherwise, please use [FluentWindow](/components/fluentwindow/).
 :::
@@ -124,6 +126,9 @@ Minimal display mode navigation interface is available at [navigation3](https://
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -133,6 +138,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [NavigationInterface](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/navigation/navigation_interface.h)
+
+![NavigationInterface](/img/components/python/NavigationInterface.png)
 
 ```cpp
 #include <components/navigation/navigation_interface.h>

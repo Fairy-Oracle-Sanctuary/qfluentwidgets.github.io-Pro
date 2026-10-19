@@ -113,6 +113,10 @@ export const series = {
             ],
         },
         {
+            text: "材质",
+            children: ["/zh/pages/components/acrylic/"],
+        },
+        {
             text: "系统",
             children: [
                 "/zh/pages/components/filepicker",

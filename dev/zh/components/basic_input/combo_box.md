@@ -47,6 +47,8 @@ comboBox.setCurrentIndex(-1)
 
 ## [ModelComboBox](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/combo_box/index.html#qfluentwidgets.components.widgets.model_combo_box.ModelComboBox)
 
+![ModelComboBox](/img/components/python/ModelComboBox.png)
+
 `ModelComboBox` 用法与 `ComboBox` 完全相同，并支持设置自定义数据模型（需要是 `QAbstractItemModel` 的子类），从而实现数据与界面的双向绑定。
 
 ```python
@@ -94,6 +96,8 @@ comboBox.setCompleter(completer)
 ```
 
 ## [EditableModelComboBox](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/combo_box/index.html#qfluentwidgets.components.widgets.model_combo_box.EditableModelComboBox)
+
+![EditableModelComboBox](/img/components/python/EditableModelComboBox.png)
 
 `EditableModelComboBox` 用法与 `EditableComboBox` 完全相同，并支持设置自定义数据模型（需要是 `QAbstractItemModel` 的子类），从而实现数据与界面的双向绑定。
 
@@ -185,6 +189,9 @@ comboBox.currentFontChanged.connect(lambda font: print(font.family()))
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -194,6 +201,8 @@ comboBox.currentFontChanged.connect(lambda font: print(font.family()))
 ```
 
 ### C++ [ComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/combo_box.h)
+
+![ComboBox](/img/components/combobox/ComboBox.png)
 
 ```cpp
 #include <components/widgets/combo_box.h>
@@ -207,6 +216,8 @@ QObject::connect(combo, &qfw::ComboBox::currentTextChanged, parent, [](const QSt
 
 ### C++ [ModelComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/model_combo_box.h)
 
+![ModelComboBox](/img/components/python/ModelComboBox.png)
+
 ```cpp
 #include <components/widgets/model_combo_box.h>
 
@@ -218,6 +229,8 @@ QObject::connect(combo, &qfw::ModelComboBox::currentTextChanged, parent, [](cons
 ```
 
 ### C++ [EditableComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/combo_box.h)
+
+![EditableComboBox](/img/components/combobox/EditableComboBox.png)
 
 ```cpp
 #include <components/widgets/combo_box.h>
@@ -231,6 +244,8 @@ QObject::connect(combo, &qfw::EditableComboBox::currentTextChanged, parent, [](c
 
 ### C++ [EditableModelComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/model_combo_box.h)
 
+![EditableModelComboBox](/img/components/python/EditableModelComboBox.png)
+
 ```cpp
 #include <components/widgets/model_combo_box.h>
 
@@ -241,15 +256,66 @@ combo->setFixedWidth(220);
 QObject::connect(combo, &qfw::EditableModelComboBox::currentTextChanged, parent, [](const QString& text) { qDebug() << text; });
 ```
 
+### C++ [MultiSelectionComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_combo_box.h)
+
+![MultiSelectionComboBox](/img/components/combobox/MultiSelectionComboBox.png)
+
+```cpp
+#include <components/widgets/extended_combo_box.h>
+auto* widget = new qfw::MultiSelectionComboBox(parent);
+widget->addItems({QStringLiteral("Qt"), QStringLiteral("C++"), QStringLiteral("Python")});
+widget->setSelectedIndices({0, 1});
+widget->setChipsMode(true);
+```
+
+### C++ [TreeComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tree_combo_box.h)
+
+![TreeComboBox](/img/components/combobox/TreeComboBox.png)
+
+只选择叶节点；外部模型由调用方管理，不写入其复选状态。
+
+```cpp
+#include <components/widgets/tree_combo_box.h>
+auto* combo = new qfw::TreeComboBox(parent);
+const auto group = combo->addItem(QStringLiteral("Languages"));
+const auto cpp = combo->addItem(QStringLiteral("C++"), group);
+combo->addItem(QStringLiteral("Python"), group);
+combo->setSearchEnabled(true);
+combo->setCurrentModelIndex(cpp);
+```
+
+### C++ [MultiSelectionTreeComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tree_combo_box.h)
+
+![MultiSelectionTreeComboBox](/img/components/combobox/MultiSelectionTreeComboBox.png)
+
+只选择叶节点；外部模型由调用方管理，不写入其复选状态。
+
+```cpp
+#include <components/widgets/tree_combo_box.h>
+auto* combo = new qfw::MultiSelectionTreeComboBox(parent);
+const auto group = combo->addItem(QStringLiteral("Languages"));
+const auto cpp = combo->addItem(QStringLiteral("C++"), group);
+combo->addItem(QStringLiteral("Python"), group);
+combo->setSearchEnabled(true);
+combo->setSelectedIndexes({cpp});
+```
+
+### C++ [FontComboBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_combo_box.h)
+
+![FontComboBox](/img/components/combobox/FontComboBox.png)
+
+```cpp
+#include <components/widgets/extended_combo_box.h>
+auto* widget = new qfw::FontComboBox(parent);
+widget->setFontFilters(qfw::FontComboBox::MonospacedFonts);
+widget->setCurrentFont(QFont(QStringLiteral("Consolas")));
+```
+
 ## C++ 暂未实现的组件
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+当前 C++ 源码尚未提供以下类型的对应实现；保留上游介绍，不提供不可编译的示例。
 
-- `MultiSelectionComboBox`
-- `TreeComboBox`
-- `MultiSelectionTreeComboBox`
 - `TransparentComboBox`
-- `FontComboBox`
 
 </template>
 </LanguageTabs>

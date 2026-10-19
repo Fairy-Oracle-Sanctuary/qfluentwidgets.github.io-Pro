@@ -44,6 +44,8 @@ listWidget.setSelectRightClickedRow(True)
 
 ### [ListView](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/list_view/index.html#qfluentwidgets.components.widgets.list_view.ListView)
 
+![ListView](/img/components/python/ListView.png)
+
 `ListView` is used to display data in the model. The usage is completely the same as `QListView`.
 
 
@@ -63,6 +65,8 @@ listWidget.currentTextChanged.connect(lambda text: print(text))
 ```
 
 ### [RoundListView](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/list_view.py)
+
+![RoundListView](/img/components/python/RoundListView.png)
 
 The usage of `RoundListView` is completely the same as `QListView`.
 
@@ -95,6 +99,8 @@ listWidget.currentTextChanged.connect(lambda text: print(text))
 
 ### [TransparentRoundListView](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/list_view.py)
 
+![TransparentRoundListView](/img/components/python/TransparentRoundListView.png)
+
 The usage of `TransparentRoundListView` is completely the same as `QListView`.
 
 ```python
@@ -126,6 +132,8 @@ listWidget.currentTextChanged.connect(lambda text: print(text))
 
 ### [CategoryCardListView](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/list_view.py)
 
+![CategoryCardListView](/img/components/python/CategoryCardListView.png)
+
 The usage of `CategoryCardListView` is completely the same as `QListView`.
 
 ```python
@@ -143,6 +151,9 @@ listView.setCurrentIndex(model.index(0, 0))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -153,6 +164,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 
 ### C++ [ListWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/list_view.h)
 
+![ListWidget](/img/components/listview/ListView.png)
+
 ```cpp
 #include <components/widgets/list_view.h>
 
@@ -162,6 +175,8 @@ list->setCurrentRow(0);
 ```
 
 ### C++ [ListView](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/list_view.h)
+
+![ListView](/img/components/python/ListView.png)
 
 ```cpp
 #include <components/widgets/list_view.h>
@@ -174,16 +189,71 @@ model->appendRow(new QStandardItem(QStringLiteral("First")));
 view->setModel(model);
 ```
 
-## C++ Not yet implemented
+### C++ [RoundListWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_list_view.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![RoundListWidget](/img/components/listview/RoundListView.png)
 
-- `RoundListWidget`
-- `RoundListView`
-- `TransparentRoundListWidget`
-- `TransparentRoundListView`
-- `CategoryCardListWidget`
-- `CategoryCardListView`
+```cpp
+#include <components/widgets/round_list_view.h>
+auto* widget = new qfw::RoundListWidget(parent);
+widget->addItems({QStringLiteral("Home"), QStringLiteral("Settings")});
+```
+
+### C++ [RoundListView](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_list_view.h)
+
+![RoundListView](/img/components/python/RoundListView.png)
+
+```cpp
+#include <QStringListModel>
+#include <components/widgets/round_list_view.h>
+auto* widget = new qfw::RoundListView(parent);
+auto* model = new QStringListModel({QStringLiteral("Home"), QStringLiteral("Settings")}, widget);
+widget->setModel(model);
+```
+
+### C++ [TransparentRoundListWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_list_view.h)
+
+![TransparentRoundListWidget](/img/components/listview/TransparentRoundListView.png)
+
+```cpp
+#include <components/widgets/round_list_view.h>
+auto* widget = new qfw::TransparentRoundListWidget(parent);
+widget->addItems({QStringLiteral("Home"), QStringLiteral("Settings")});
+```
+
+### C++ [TransparentRoundListView](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_list_view.h)
+
+![TransparentRoundListView](/img/components/python/TransparentRoundListView.png)
+
+```cpp
+#include <QStringListModel>
+#include <components/widgets/round_list_view.h>
+auto* widget = new qfw::TransparentRoundListView(parent);
+auto* model = new QStringListModel({QStringLiteral("Home"), QStringLiteral("Settings")}, widget);
+widget->setModel(model);
+```
+
+### C++ [CategoryCardListWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_list_view.h)
+
+![CategoryCardListWidget](/img/components/listview/CategoryCardListView.png)
+
+```cpp
+#include <components/widgets/round_list_view.h>
+auto* widget = new qfw::CategoryCardListWidget(parent);
+widget->addItems({QStringLiteral("Home"), QStringLiteral("Settings")});
+```
+
+### C++ [CategoryCardListView](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/round_list_view.h)
+
+![CategoryCardListView](/img/components/python/CategoryCardListView.png)
+
+```cpp
+#include <QStringListModel>
+#include <components/widgets/round_list_view.h>
+auto* widget = new qfw::CategoryCardListView(parent);
+auto* model = new QStringListModel({QStringLiteral("Home"), QStringLiteral("Settings")}, widget);
+widget->setModel(model);
+```
 
 </template>
 </LanguageTabs>

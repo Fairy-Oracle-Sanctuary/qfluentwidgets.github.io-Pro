@@ -49,10 +49,15 @@ tree.scrollDelagate.verticalSmoothScroll.setSmoothMode(SmoothMode.NO_SMOOTH)
 
 ### [TreeView](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/widgets/tree_view/index.html#qfluentwidgets.components.widgets.tree_view.TreeView)
 
+![TreeView](/img/components/python/TreeView.png)
+
 `TreeView` is used to display data with parent-child relationships. The usage of this class is completely the same as `QTreeView`.
 
 </template>
 <template #cpp>
+
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
 
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
@@ -63,6 +68,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [TreeWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tree_view.h)
+
+![TreeWidget](/img/components/treeview/TreeWidget.png)
 
 ```cpp
 #include <components/widgets/tree_view.h>
@@ -75,6 +82,8 @@ tree->expandAll();
 ```
 
 ### C++ [TreeView](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tree_view.h)
+
+![TreeView](/img/components/python/TreeView.png)
 
 ```cpp
 #include <components/widgets/tree_view.h>

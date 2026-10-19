@@ -1,19 +1,16 @@
 ---
-title: Pro
+title: Extensions
 date: 2023-08-17 15:37:01
 permalink: /pages/pro/
 ---
 
-## How is the component library authorized?
+## Community extensions
 
-Python QFluentWidgets is licensed under GPLv3 for non-commercial use. For commercial use, you should purchase a [**commercial license**](/price).
+This site documents the Python reference implementation and the C++ migration. Consult the LICENSE and third-party notices in the repository you use; this page does not grant an upstream commercial license.
 
+C++ now includes migrated chat, code editing, charts, acrylic materials, and advanced input and layout components. See the [installation guide](/pages/install/) and each component’s C++ tab for supported APIs and remaining gaps.
 
-## What are the pro components?
-
-Currently, QFluentWidgets Pro includes the following components, and more components being added in the future.
-
-You can download the demo `PyQt-Fluent-Widgets-Pro-Gallery.zip` from [release page](https://github.com/zhiyiYo/PyQt-Fluent-Widgets/releases).
+The tables below retain upstream Pro names for comparison. They do not imply that every type exists in either local repository. FilledFluentWindow is implemented; video playback and GuideWindow still have gaps.
 
 ### Basic Inputs
 

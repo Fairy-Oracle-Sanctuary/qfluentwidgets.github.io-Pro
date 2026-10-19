@@ -13,6 +13,8 @@ QFluentWidgets 将每个配置项表示为界面的一个设置卡。用户在�
 
 ### [SettingCard](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/settings/setting_card/index.html#qfluentwidgets.components.settings.setting_card.SettingCard)
 
+![SettingCard](/img/components/python/SettingCard.png)
+
 设置卡基类，内部包含图标、标题和内容，可在 `hBoxLayout` 中插入组件来自定义设置卡。
 
 设置卡子类都实现了 `setValue(value)` 函数来改变配置项的值。
@@ -252,10 +254,15 @@ class ServerItem(QWidget):
 
 ### [SettingCardGroup](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/settings/setting_card_group/index.html)
 
+![SettingCardGroup](/img/components/python/SettingCardGroup.png)
+
 可以通过 `SettingCardGroup.addSettingCard()` 将多个设置卡添加到同一个组中，`SettingCardGroup` 会根据设置卡的高度自动调整自己的布局。
 
 </template>
 <template #cpp>
+
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
 
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
@@ -267,6 +274,8 @@ class ServerItem(QWidget):
 
 ### C++ [SettingCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/setting_card.h)
 
+![SettingCard](/img/components/python/SettingCard.png)
+
 ```cpp
 #include <components/settings/setting_card.h>
 
@@ -274,6 +283,8 @@ auto* card = new qfw::SettingCard(qfw::FluentIconEnum::Setting, QStringLiteral("
 ```
 
 ### C++ [ComboBoxSettingCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/setting_card.h)
+
+![ComboBoxSettingCard](/img/components/settingcard/ComboBoxSettingCard.png)
 
 ```cpp
 #include <components/settings/setting_card.h>
@@ -286,6 +297,8 @@ auto* card = new qfw::ComboBoxSettingCard(item, qfw::FluentIconEnum::Setting, QS
 
 ### C++ [OptionsSettingCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/options_setting_card.h)
 
+![OptionsSettingCard](/img/components/settingcard/OptionsSettingCard.png)
+
 ```cpp
 #include <components/settings/options_setting_card.h>
 
@@ -296,6 +309,8 @@ auto* card = new qfw::OptionsSettingCard(item, qfw::FluentIconEnum::Setting, QSt
 ```
 
 ### C++ [FolderListSettingCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/folder_list_setting_card.h)
+
+![FolderListSettingCard](/img/components/settingcard/FolderListSettingCard.png)
 
 ```cpp
 #include <components/settings/folder_list_setting_card.h>
@@ -308,6 +323,8 @@ auto* card = new qfw::FolderListSettingCard(item, QStringLiteral("Folders"), QSt
 
 ### C++ [RangeSettingCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/setting_card.h)
 
+![RangeSettingCard](/img/components/settingcard/RangeSettingCard.png)
+
 ```cpp
 #include <components/settings/setting_card.h>
 
@@ -318,6 +335,8 @@ auto* card = new qfw::RangeSettingCard(item, qfw::FluentIconEnum::Setting, QStri
 ```
 
 ### C++ [SwitchSettingCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/setting_card.h)
+
+![SwitchSettingCard](/img/components/settingcard/SwitchSettingCard.png)
 
 ```cpp
 #include <components/settings/setting_card.h>
@@ -330,6 +349,8 @@ auto* card = new qfw::SwitchSettingCard(qfw::FluentIconEnum::Setting, QStringLit
 
 ### C++ [HyperlinkCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/setting_card.h)
 
+![HyperlinkCard](/img/components/settingcard/HyperlinkCard.png)
+
 ```cpp
 #include <components/settings/setting_card.h>
 
@@ -337,6 +358,8 @@ auto* card = new qfw::HyperlinkCard(QStringLiteral("https://fairy.ora-san.org/")
 ```
 
 ### C++ [PushSettingCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/setting_card.h)
+
+![PushSettingCard](/img/components/settingcard/PushSettingCard.png)
 
 ```cpp
 #include <components/settings/setting_card.h>
@@ -347,6 +370,8 @@ QObject::connect(card, &qfw::PushSettingCard::clicked, parent, [] { qDebug() << 
 
 ### C++ [PrimaryPushSettingCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/setting_card.h)
 
+![PrimaryPushSettingCard](/img/components/settingcard/PrimaryPushSettingCard.png)
+
 ```cpp
 #include <components/settings/setting_card.h>
 
@@ -356,6 +381,8 @@ QObject::connect(card, &qfw::PushSettingCard::clicked, parent, [] { qDebug() << 
 
 ### C++ [ExpandGroupSettingCard](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/expand_setting_card.h)
 
+![ExpandGroupSettingCard](/img/components/settingcard/ExpandGroupSettingCard.png)
+
 ```cpp
 #include <components/settings/expand_setting_card.h>
 
@@ -364,6 +391,8 @@ card->addGroupWidget(new qfw::BodyLabel(QStringLiteral("Custom settings"), card)
 ```
 
 ### C++ [SettingCardGroup](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/settings/setting_card_group.h)
+
+![SettingCardGroup](/img/components/python/SettingCardGroup.png)
 
 ```cpp
 #include <components/settings/setting_card_group.h>

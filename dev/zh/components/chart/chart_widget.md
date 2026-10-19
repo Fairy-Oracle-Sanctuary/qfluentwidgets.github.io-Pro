@@ -53,6 +53,9 @@ waveform.seekRequested.connect(lambda milliseconds: print(milliseconds))
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -61,12 +64,39 @@ waveform.seekRequested.connect(lambda milliseconds: print(milliseconds))
 #include <memory>
 ```
 
-## C++ 暂未实现的组件
+### C++ [ChartWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/chart_widget.h)
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+![ChartWidget](/img/components/chart/Bar.png)
 
-- `ChartWidget`
-- `AudioWaveformWidget`
+单独链接 qtfluentwidgets_chart；需 Qt WebEngineWidgets 和 QuickWidgets。在 QApplication 前启用 Qt::AA_ShareOpenGLContexts。setOptionJS() 用于包含函数的受信任 ECharts 配置；内置 ECharts 5.6.0，无 CDN 依赖。
+
+```cpp
+#include <QJsonArray>
+#include <QJsonObject>
+#include <components/widgets/chart_widget.h>
+auto* chart = new qfw::ChartWidget(parent);
+chart->resize(640, 360);
+chart->setOption({
+    {"xAxis", QJsonObject{{"type", "category"}, {"data", QJsonArray{"Mon", "Tue", "Wed"}}}},
+    {"yAxis", QJsonObject{{"type", "value"}}},
+    {"series", QJsonArray{QJsonObject{{"type", "bar"}, {"data", QJsonArray{12, 20, 15}}}}}
+});
+```
+
+### C++ [AudioWaveformWidget](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/audio_waveform.h)
+
+![AudioWaveformWidget](/img/components/chart/AudioWaveformWidget.png)
+
+只绘制归一化单声道 PCM，不负责音频解码或播放；生产线程请使用排队信号更新 GUI。
+
+```cpp
+#include <components/widgets/audio_waveform.h>
+auto* waveform = new qfw::AudioWaveformWidget(parent);
+waveform->setSamples({0.0f, 0.3f, -0.5f, 0.8f, -0.2f}, 24000);
+waveform->appendSamples({0.4f, -0.3f});
+waveform->setSeekEnabled(true);
+QObject::connect(waveform, &qfw::AudioWaveformWidget::seekRequested, waveform, [](qint64 ms) { qDebug() << ms; });
+```
 
 </template>
 </LanguageTabs>

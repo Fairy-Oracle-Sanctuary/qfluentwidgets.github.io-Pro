@@ -11,6 +11,8 @@ Python 示例对应 `qfluentwidgets_pro`。代码片段需在创建 `QApplicatio
 
 ### [SingleDirectionScrollArea](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/widgets/scroll_area/index.html#qfluentwidgets.components.widgets.scroll_area.SingleDirectionScrollArea)
 
+![SingleDirectionScrollArea](/img/components/python/SingleDirectionScrollArea.png)
+
 `SingleDirectionScrollArea` 实现了单方向的平滑滚动，当竖直方向或者水平方向有太多数据需要展示时，可使用此组件。
 
 竖直方向：
@@ -57,6 +59,8 @@ scrollArea.enableTransparentBackground()
 
 ### [ScrollArea](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/widgets/scroll_area/index.html#qfluentwidgets.components.widgets.scroll_area.ScrollArea)
 
+![ScrollArea](/img/components/python/ScrollArea.png)
+
 `ScrollArea` 实现了水平和竖直方向的平滑滚动，使用方式和 `QScrollArea` 完全相同。
 
 在某些情况下平滑滚动可能导致界面卡顿，取消平滑滚动的方法如下：
@@ -65,6 +69,8 @@ scrollArea.setSmoothMode(SmoothMode.NO_SMOOTH)
 ```
 
 ### [SmoothScrollArea](https://pyqt-fluent-widgets.readthedocs.io/zh-cn/latest/autoapi/qfluentwidgets/components/widgets/scroll_area/index.html#qfluentwidgets.components.widgets.scroll_area.SmoothScrollArea)
+
+![SmoothScrollArea](/img/components/python/SmoothScrollArea.png)
 
 `SmoothScrollArea` 使用 `QPropertyAnimation` 实现了水平和竖直方向的平滑滚动，使用方式和 `QScrollArea` 完全相同。
 
@@ -123,6 +129,9 @@ scrollArea.scrollDelagate.verticalSmoothScroll.setDynamicEngineEnabled(False)
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -132,6 +141,8 @@ scrollArea.scrollDelagate.verticalSmoothScroll.setDynamicEngineEnabled(False)
 ```
 
 ### C++ [SingleDirectionScrollArea](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/scroll_area.h)
+
+![SingleDirectionScrollArea](/img/components/python/SingleDirectionScrollArea.png)
 
 ```cpp
 #include <components/widgets/scroll_area.h>
@@ -144,6 +155,8 @@ area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
 ### C++ [ScrollArea](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/scroll_area.h)
 
+![ScrollArea](/img/components/python/ScrollArea.png)
+
 ```cpp
 #include <components/widgets/scroll_area.h>
 
@@ -154,6 +167,8 @@ area->setSmoothMode(qfw::SmoothMode::Cosine, Qt::Vertical);
 ```
 
 ### C++ [SmoothScrollArea](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/scroll_area.h)
+
+![SmoothScrollArea](/img/components/python/SmoothScrollArea.png)
 
 ```cpp
 #include <components/widgets/scroll_area.h>

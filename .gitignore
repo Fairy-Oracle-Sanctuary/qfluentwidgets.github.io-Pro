@@ -1,6 +1,26 @@
-.vuepress/.cache
-.vuepress/.temp
-node_modules
-.temp
-.cache
-dev/.vuepress/dist
+# Dependencies and VuePress intermediate output
+node_modules/
+.temp/
+.cache/
+/dev/.vuepress/dist/
+
+# Local build/test logs and coverage
+*.log
+/dev/coverage/
+
+# Local environment configuration (keep distributable examples)
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Editor and operating-system state
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+
+# docs/ is the published website; keep its HTML, assets and images tracked.

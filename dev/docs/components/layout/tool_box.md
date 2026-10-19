@@ -13,6 +13,8 @@ The Pro examples use `qfluentwidgets_pro` and follow the same concise style as t
 
 ### [ToolBox](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/tool_box.py)
 
+![ToolBox](/img/components/python/ToolBox.png)
+
 An animated tool box with at most one expanded item. Set the current index to -1 to collapse all items.
 
 ```python
@@ -31,6 +33,9 @@ toolBox.currentChanged.connect(lambda index: print(index))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -39,11 +44,17 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 #include <memory>
 ```
 
-## C++ Not yet implemented
+### C++ [ToolBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/tool_box.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![ToolBox](/img/components/python/ToolBox.png)
 
-- `ToolBox`
+```cpp
+#include <components/widgets/tool_box.h>
+auto* widget = new qfw::ToolBox(parent);
+widget->addItem(new QWidget(widget), QStringLiteral("General"));
+widget->addItem(new QWidget(widget), QStringLiteral("Advanced"));
+widget->setCurrentIndex(0);
+```
 
 </template>
 </LanguageTabs>

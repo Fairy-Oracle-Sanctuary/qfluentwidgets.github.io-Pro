@@ -11,7 +11,7 @@ permalink: /zh/pages/about/
 ## 我们的组件库
 
 - **Python / PySide6**：[PySide6-Fluent-Widgets-Pro](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro)，包含免费基础组件和已实现的高级扩展组件。
-- **C++ / Qt**：[Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)，目前仅包含免费基础组件，不包含 Python 项目中的高级扩展组件。
+- **C++ / Qt**：[Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)，包含基础组件及已迁移的高级扩展，包括原生聊天、代码编辑器、ECharts 图表和 Acrylic 材质组件。接口差异及尚未提供的类型见各组件页。
 
 两个仓库均可免费获取源代码，无需选择购买套餐。具体使用条件请查看各自仓库的许可证。
 

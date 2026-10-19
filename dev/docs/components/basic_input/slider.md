@@ -70,6 +70,9 @@ slider.rangeChanged.connect(lambda low, high: print(low, high))
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -79,6 +82,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [Slider](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/slider.h)
+
+![Slider](/img/components/slider/Slider.png)
 
 ```cpp
 #include <components/widgets/slider.h>
@@ -90,12 +95,28 @@ slider->setFixedWidth(260);
 QObject::connect(slider, &QSlider::valueChanged, parent, [](int value) { qDebug() << value; });
 ```
 
-## C++ Not yet implemented
+### C++ [ToolTipSlider](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_slider.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![ToolTipSlider](/img/components/slider/ToolTipSlider.png)
 
-- `ToolTipSlider`
-- `RangeSlider`
+```cpp
+#include <components/widgets/extended_slider.h>
+auto* widget = new qfw::ToolTipSlider(Qt::Horizontal, parent);
+widget->setRange(0, 100);
+widget->setValue(40);
+```
+
+### C++ [RangeSlider](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_slider.h)
+
+![RangeSlider](/img/components/slider/RangeSlider.png)
+
+```cpp
+#include <components/widgets/extended_slider.h>
+auto* widget = new qfw::RangeSlider(Qt::Horizontal, parent);
+widget->setRange(0, 100);
+widget->setValues(20, 80);
+widget->setMinimumGap(10);
+```
 
 </template>
 </LanguageTabs>

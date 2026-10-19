@@ -192,6 +192,9 @@ codeEdit.setIndentSize(4)
 </template>
 <template #cpp>
 
+展示图复用本页对应 Python 组件的截图，供外观参考；C++ 的接口与用法以以下示例为准。
+
+
 以下代码对应 [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets)。请先按[安装说明](/zh/pages/install/#c-接入自己的项目)接入组件库，创建 `QApplication` 并调用 `Q_INIT_RESOURCE(resource)`；片段中的 `parent` 是你的窗口指针。创建控件后加入自己的布局，图片和资源路径需替换为项目实际路径。
 
 ```cpp
@@ -201,6 +204,8 @@ codeEdit.setIndentSize(4)
 ```
 
 ### C++ [LineEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
+
+![LineEdit](/img/components/lineedit/LineEdit.png)
 
 ```cpp
 #include <components/widgets/line_edit.h>
@@ -214,6 +219,8 @@ edit->setFixedWidth(260);
 
 ### C++ [SearchLineEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
 
+![SearchLineEdit](/img/components/lineedit/SearchLineEdit.png)
+
 ```cpp
 #include <components/widgets/line_edit.h>
 
@@ -223,6 +230,8 @@ QObject::connect(edit, &qfw::SearchLineEdit::searchSignal, parent, [](const QStr
 ```
 
 ### C++ [PasswordLineEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
+
+![PasswordLineEdit](/img/components/lineedit/PasswordLineEdit.png)
 
 ```cpp
 #include <components/widgets/line_edit.h>
@@ -234,6 +243,8 @@ edit->setPasswordVisible(false);
 
 ### C++ [PlainTextEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
 
+![PlainTextEdit](/img/components/lineedit/PlainTextEdit.png)
+
 ```cpp
 #include <components/widgets/line_edit.h>
 
@@ -244,6 +255,8 @@ qDebug() << edit->toPlainText();
 
 ### C++ [TextBrowser](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
 
+![TextBrowser](/img/components/lineedit/TextEdit.png)
+
 ```cpp
 #include <components/widgets/line_edit.h>
 
@@ -252,15 +265,55 @@ browser->setHtml(QStringLiteral("<b>Hello</b>"));
 browser->setOpenExternalLinks(true);
 ```
 
+### C++ [PinBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_line_edit.h)
+
+![PinBox](/img/components/lineedit/PinBox.png)
+
+```cpp
+#include <components/widgets/extended_line_edit.h>
+auto* widget = new qfw::PinBox(parent);
+widget->setPinBoxCount(6);
+widget->setEchoMode(QLineEdit::Password);
+```
+
+### C++ [LabelLineEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/extended_line_edit.h)
+
+![LabelLineEdit](/img/components/lineedit/LabelLineEdit.png)
+
+```cpp
+#include <components/widgets/extended_line_edit.h>
+auto* widget = new qfw::LabelLineEdit(QStringLiteral("$"), QStringLiteral("USD"), parent);
+widget->setPlaceholderText(QStringLiteral("Amount"));
+```
+
+### C++ [TextEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/line_edit.h)
+
+![TextEdit](/img/components/lineedit/TextEdit.png)
+
+```cpp
+#include <components/widgets/line_edit.h>
+auto* widget = new qfw::TextEdit(parent);
+widget->setPlainText(QStringLiteral("Editable text"));
+```
+
+### C++ [CodeEdit](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/code_edit.h)
+
+![CodeEdit](/img/components/lineedit/CodeEdit.png)
+
+```cpp
+#include <components/widgets/code_edit.h>
+auto* widget = new qfw::CodeEdit(parent);
+widget->setLanguage(qfw::CodeLanguage::CPP);
+widget->setIndentSize(4);
+widget->setLineNumbersVisible(true);
+widget->setPlainText(QStringLiteral("int main() { return 0; }"));
+```
+
 ## C++ 暂未实现的组件
 
-当前 C++ 仓库没有以下组件的对应实现，因此不提供不可用的 C++ 示例。上面的 Python 代码不能直接用于 C++：
+当前 C++ 源码尚未提供以下类型的对应实现；保留上游介绍，不提供不可编译的示例。
 
-- `PinBox`
 - `TokenLineEdit`
-- `LabelLineEdit`
-- `TextEdit`
-- `CodeEdit`
 
 </template>
 </LanguageTabs>

@@ -59,6 +59,9 @@ timePicker.setColumnVisible(2, True)    # Show seconds
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -68,6 +71,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [TimePicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/date_time/time_picker.h)
+
+![TimePicker](/img/components/timepicker/TimePicker.png)
 
 ```cpp
 #include <components/date_time/time_picker.h>
@@ -79,6 +84,8 @@ QObject::connect(picker, &qfw::TimePicker::timeChanged, parent, [](const QTime& 
 ```
 
 ### C++ [AMTimePicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/date_time/time_picker.h)
+
+![AMTimePicker](/img/components/timepicker/AMTimePicker.png)
 
 ```cpp
 #include <components/date_time/time_picker.h>

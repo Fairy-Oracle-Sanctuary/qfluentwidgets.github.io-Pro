@@ -150,6 +150,8 @@ class Demo(QWidget):
 
 ### [SystemTrayMenu](https://pyqt-fluent-widgets.readthedocs.io/en/latest/autoapi/qfluentwidgets/components/widgets/menu/index.html#qfluentwidgets.components.widgets.menu.SystemTrayMenu)
 
+![SystemTrayMenu](/img/components/python/SystemTrayMenu.png)
+
 `SystemTrayMenu` is used as a system tray menu, used with `QSystemTrayIcon`.
 
 ```python
@@ -203,6 +205,9 @@ class Demo(QWidget):
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -212,6 +217,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [RoundMenu](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/menu.h)
+
+![RoundMenu](/img/components/menu/RoundMenu.png)
 
 ```cpp
 #include <components/widgets/menu.h>
@@ -227,6 +234,8 @@ menu->execAt(parent->mapToGlobal(QPoint(20, 20)));
 
 ### C++ [CheckableMenu](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/menu.h)
 
+![CheckableMenu](/img/components/menu/CheckableMenu.png)
+
 ```cpp
 #include <components/widgets/menu.h>
 
@@ -239,6 +248,8 @@ menu->execAt(parent->mapToGlobal(QPoint(20, 20)));
 ```
 
 ### C++ [SystemTrayMenu](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/menu.h)
+
+![SystemTrayMenu](/img/components/python/SystemTrayMenu.png)
 
 ```cpp
 #include <components/widgets/menu.h>

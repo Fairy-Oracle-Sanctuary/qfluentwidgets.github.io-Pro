@@ -80,6 +80,9 @@ picker.setFreezeScreenEnabled(True)
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -90,6 +93,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 
 ### C++ [ColorDialog](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/dialog_box/color_dialog.h)
 
+![ColorDialog](/img/components/colordialog/ColorDialog.png)
+
 ```cpp
 #include <components/dialog_box/color_dialog.h>
 
@@ -98,14 +103,47 @@ QObject::connect(&dialog, &qfw::ColorDialog::colorChanged, parent, [](const QCol
 dialog.exec();
 ```
 
-## C++ Not yet implemented
+### C++ [DropDownColorPalette](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/color_picker.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![DropDownColorPalette](/img/components/colordialog/DropDownColorPalette.png)
 
-- `DropDownColorPalette`
-- `DropDownColorPicker`
-- `CircleColorPicker`
-- `ScreenColorPicker`
+```cpp
+#include <components/widgets/color_picker.h>
+auto* widget = new qfw::DropDownColorPalette(parent);
+widget->setColor(QColor("#009faa"));
+```
+
+### C++ [DropDownColorPicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/drop_down_color_picker.h)
+
+![DropDownColorPicker](/img/components/colordialog/DropDownColorPicker.png)
+
+```cpp
+#include <components/widgets/drop_down_color_picker.h>
+auto* widget = new qfw::DropDownColorPicker(parent);
+widget->setColor(QColor("#009faa"));
+widget->setAlphaEnabled(true);
+```
+
+### C++ [CircleColorPicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/color_picker.h)
+
+![CircleColorPicker](/img/components/colordialog/CircleColorPicker.png)
+
+```cpp
+#include <components/widgets/color_picker.h>
+auto* widget = new qfw::CircleColorPicker(parent);
+widget->setCurrentIndex(1);
+```
+
+### C++ [ScreenColorPicker](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/screen_color_picker.h)
+
+![ScreenColorPicker](/img/components/colordialog/ScreenColorPicker.png)
+
+```cpp
+#include <components/widgets/screen_color_picker.h>
+auto* widget = new qfw::ScreenColorPicker(parent);
+widget->setFreezeScreenEnabled(true);
+QObject::connect(widget, &qfw::ScreenColorPicker::colorPicked, widget, [](const QColor& value) { qDebug() << value; });
+```
 
 </template>
 </LanguageTabs>

@@ -137,6 +137,8 @@ class CustomMessageBox(MessageBoxBase):
 
 ### [WaitingDialog](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/dialog_box/waiting_dialog.py)
 
+![WaitingDialog](/img/components/python/WaitingDialog.png)
+
 A non-blocking waiting dialog, closed by the caller when its task finishes.
 
 ```python
@@ -150,6 +152,8 @@ self.waitingDialog.open()
 ```
 
 ### [Drawer](https://github.com/Fairy-Oracle-Sanctuary/PySide6-Fluent-Widgets-Pro/blob/main/qfluentwidgets_pro/components/widgets/drawer.py)
+
+![Drawer](/img/components/python/Drawer.png)
 
 A shadowed drawer that slides in from any of its parent's four edges.
 
@@ -170,6 +174,9 @@ self.drawer.open(DrawerPosition.RIGHT)
 </template>
 <template #cpp>
 
+Images are shared with the corresponding Python components on this page for appearance reference. Use the examples below for the C++ APIs.
+
+
 These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets). Follow the [installation guide](/pages/install/#c-integration), create `QApplication`, and call `Q_INIT_RESOURCE(resource)` first. In these fragments, `parent` is your window pointer. Add widgets to your layout and replace asset paths with your own files.
 
 ```cpp
@@ -179,6 +186,8 @@ These examples target [Qt-Fluent-Widgets](https://github.com/Fairy-Oracle-Sanctu
 ```
 
 ### C++ [Dialog](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/dialog_box/dialog.h)
+
+![Dialog](/img/components/messagebox/Dialog.png)
 
 ```cpp
 #include <components/dialog_box/dialog.h>
@@ -191,6 +200,8 @@ if (dialog.exec() == QDialog::Accepted) {
 
 ### C++ [MessageBox](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/dialog_box/dialog.h)
 
+![MessageBox](/img/components/messagebox/MessageBox.png)
+
 ```cpp
 #include <components/dialog_box/dialog.h>
 
@@ -202,6 +213,8 @@ if (dialog.exec() == QDialog::Accepted) {
 
 ### C++ [MessageBoxBase](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/dialog_box/message_box_base.h)
 
+![MessageBoxBase](/img/components/messagebox/CustomMessageBox.png)
+
 ```cpp
 #include <components/dialog_box/message_box_base.h>
 
@@ -212,12 +225,30 @@ dialog->exec();
 dialog->deleteLater();
 ```
 
-## C++ Not yet implemented
+### C++ [WaitingDialog](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/dialog_box/waiting_dialog.h)
 
-The C++ repository currently has no corresponding implementations for these components, so no unavailable C++ examples are provided. The Python code cannot be used directly in C++:
+![WaitingDialog](/img/components/python/WaitingDialog.png)
 
-- `WaitingDialog`
-- `Drawer`
+```cpp
+#include <components/dialog_box/waiting_dialog.h>
+auto* widget = new qfw::WaitingDialog(parent);
+widget->setTitle(QStringLiteral("Loading"));
+widget->setContent(QStringLiteral("Preparing data…"));
+widget->show();
+```
+
+### C++ [Drawer](https://github.com/Fairy-Oracle-Sanctuary/Qt-Fluent-Widgets/blob/main/qtfluentwidgets/components/widgets/drawer.h)
+
+![Drawer](/img/components/python/Drawer.png)
+
+```cpp
+#include <components/widgets/drawer.h>
+auto* widget = new qfw::Drawer(parent);
+widget->setTitle(QStringLiteral("Details"));
+widget->setDrawerSize(320);
+widget->addWidget(new qfw::BodyLabel(QStringLiteral("Panel content"), widget));
+widget->open();
+```
 
 </template>
 </LanguageTabs>

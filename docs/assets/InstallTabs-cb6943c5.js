@@ -1,0 +1,1 @@
+import o from"./LanguageTabs-c77eafb5.js";import{_ as e,o as l,m as n,w as a,x as t}from"./app-16708a73.js";const p={__name:"InstallTabs",setup(r){return(s,_)=>(l(),n(o,null,{python:a(()=>[t(s.$slots,"python")]),cpp:a(()=>[t(s.$slots,"cpp")]),_:3}))}},u=e(p,[["__file","InstallTabs.vue"]]);export{u as default};

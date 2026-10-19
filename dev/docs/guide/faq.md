@@ -23,7 +23,7 @@ Both projects are maintained by [Fairy Oracle Sanctuary](https://fairy.ora-san.o
 
 ### Do both versions have identical components and APIs?
 
-No. Python includes free base components and implemented advanced extensions, some of which remain a work in progress. C++ currently focuses on free base components and does not include the complete set of Python extensions.
+The APIs are not identical. Both include base components and implemented extensions; C++ now includes native chat, a 20-language code editor, charts, Acrylic components and FilledFluentWindow. Video playback and GuideWindow still have no C++ implementation. Matching class names do not establish complete visual or interaction equivalence.
 
 Component pages have a Python / C++ switch, with examples based on each repository's actual APIs. Components not yet implemented in C++ are explicitly marked. Similar class names may have different interfaces; do not copy examples directly between languages.
 

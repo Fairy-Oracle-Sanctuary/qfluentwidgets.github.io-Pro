@@ -113,6 +113,10 @@ export const series = {
             ],
         },
         {
+            text: "Materials",
+            children: ["/pages/components/acrylic/"],
+        },
+        {
             text: "System",
             children: [
                 "/pages/components/filepicker",

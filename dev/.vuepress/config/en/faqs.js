@@ -12,7 +12,7 @@ export const faqs = {
         },
         {
             question: 'Do both versions include the same components?',
-            answer: 'No. The Python library includes free base components and restored advanced extensions. The C++ library currently includes only free base components.',
+            answer: 'Both include base components and implemented extensions, including chat, code editing and charts. APIs and remaining gaps are documented per component; code is not interchangeable.',
         },
         {
             question: 'Which terms should I review before using a library?',
